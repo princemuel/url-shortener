@@ -6,7 +6,7 @@
   "scripts": {
     "scss": "sass --no-source-map sass:css",
     "watch": "sass --watch scss/index.scss css/main.css",
-    "serve": "browser-sync start --server public --files public --port 1337",
+    "serve": "browser-sync start --server --watch --files --port 3001",
     "start": "npm-run-all --parallel watch serve"
   },
   "repository": {
