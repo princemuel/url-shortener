@@ -1,0 +1,66 @@
+@use '../abstracts/mq-manager' as *;
+@use '../abstracts/variables' as *;
+
+/* ////////////////////////////////////////////
+// LAYOUT
+*/
+
+// [class^='section-'] {
+//   padding: 5rem 0;
+// }
+
+.row {
+  display: flex;
+  align-items: center;
+  max-width: $grid-width;
+  margin: 0 auto;
+  gap: $gap;
+
+  @include media('<=tablet') {
+    flex-direction: column;
+    & > * {
+      width: 100% !important;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include media('<=tablet') {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  .col {
+    &-1-of-2 {
+      width: calc((100% - #{$gap}) / 2);
+    }
+
+    &-1-of-3 {
+      width: calc((100% - 2 * #{$gap}) / 3);
+    }
+
+    &-2-of-3 {
+      width: calc(2 * ((100% - 2 * #{$gap}) / 3) + #{$gap});
+    }
+
+    &-1-of-4 {
+      width: calc((100% - 3 * #{$gap}) / 4);
+    }
+
+    &-2-of-4 {
+      width: calc(2 * ((100% - 3 * #{$gap}) / 4) + #{$gap});
+    }
+
+    &-3-of-4 {
+      width: calc(3 * ((100% - 3 * #{$gap}) / 4) + 2 * #{$gap});
+    }
+  }
+}
+
+// @include media('<=tablet') {
+//     // [class^='col-'] {
+//     //   width: 100% !important; //makes the flex items take full width
+//     // }
+
+//   }

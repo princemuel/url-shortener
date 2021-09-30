@@ -1,0 +1,10 @@
+/*********** FLOW CONTENT ************/
+.u-flow-content {
+  --flow-space: 1em;
+
+  & > * + * {
+    margin-top: var(--flow-space, 1em);
+  }
+}
+
+
