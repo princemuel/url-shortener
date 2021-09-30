@@ -1,0 +1,112 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mq-manager' as mq;
+/*********** NAVIGATION ************/
+nav {
+  padding: 1rem 1.5rem;
+  @include mq.media('>=ipad') {
+    background: transparent;
+  }
+}
+
+.header__nav {
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--clr-white);
+    box-shadow: var(--light-shadow);
+
+    .links a {
+      color: var(--clr-grey-1);
+      &:hover {
+        color: var(--clr-secondary);
+      }
+    }
+  }
+
+  &-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem; //optional
+    @include mq.media('>=ipad') {
+      padding: 0;
+    }
+  }
+
+  &-center {
+    @include mq.media('>=ipad') {
+      width: 90vw;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.nav-toggle {
+  font-size: 1.5rem;
+  color: var(--clr-grey-1);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+  @include mq.media('>=ipad') {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--clr-secondary);
+  }
+}
+
+.links {
+  @include mq.media('>=ipad') {
+    // height: auto;
+    display: flex;
+  }
+  &-container {
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+
+    // overwrites the inlined style
+    @include mq.media('>=ipad') {
+      height: auto !important;
+    }
+  }
+
+  a {
+    background: var(--clr-white);
+    color: var(--clr-grey-5);
+    // font-size: 1.4rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    display: block;
+    transition: var(--transition);
+    font-weight: bold;
+    padding: 0.75rem 0;
+    @include mq.media('>=ipad') {
+      background: transparent;
+      color: var(--clr-white);
+      font-size: 1.1rem;
+      text-transform: capitalize;
+      letter-spacing: var(--spacing);
+      display: block;
+      transition: var(--transition);
+      margin: 0 1rem;
+      font-weight: bold;
+      padding: 0;
+    }
+    &:hover {
+      color: var(--clr-grey-1);
+      @include mq.media('>=ipad') {
+        color: var(--clr-white);
+      }
+    }
+  }
+}
+

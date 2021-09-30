@@ -1,0 +1,9 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mq-manager' as mq;
+/*********** HEADER ************/
+.header {
+  min-height: 90vh;
+
+  @include mq.media('<=tablet') {
+  }
+}

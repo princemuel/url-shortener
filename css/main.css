@@ -1,0 +1,545 @@
+/*!Theme Name:
+Theme URI: https://easybankers.netlify.app/
+Repository: https://github.com/pHoeniX-svg/FEM__easybank
+Description: A landing page project from frontend mentor challeges
+Author's Name: Chukwuzube Samuel
+Author's Moniker: pHoeniX-svg
+Version: 01
+*/
+/* ////////////////////////////////////////////
+// BASE CONFIGURATION
+*/
+:root {
+  --clr-bg-100: white;
+  --clr-bg-200: #fafafa;
+  --clr-bg-300: #9698a6;
+  --clr-bg-400: #31d35c;
+  --clr-bg-500: #2bb7da;
+  --clr-bg-600: #2d314d;
+  --clr-el-100: white;
+  --clr-el-200: #38cc8c;
+  --clr-el-300: #6055a5;
+  --clr-el-400: #b9b6d3;
+  --clr-el-500: #3e3c49;
+  --clr-txt-100: #fafafa;
+  --clr-txt-200: #f3f4f6;
+  --clr-txt-300: #9698a6;
+  --clr-txt-400: #2d314d;
+  --clr-success: hsl(134, 61%, 41%);
+  --clr-danger: hsl(354, 70%, 54%);
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+  --fs-100: 0.64rem;
+  --fs-200: 0.8rem;
+  --fs-300: 1.125rem;
+  --fs-400: 1.325rem;
+  --fs-500: 1.425rem;
+  --fs-600: 1.563rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.2rem;
+  --fs-xl: clamp(4.5rem, 1rem + 8vw, 9rem);
+  --ff-accent: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --ff-primary: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --br: 0.8rem;
+  --spacer: 2rem;
+  --spacing: 0.02em;
+  --shadow-300: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --transition: all .2s ease;
+  --max-width: 114rem;
+}
+@media (min-width: 75em) {
+  :root {
+    --fs-100: 0.64rem;
+    --fs-200: 0.8rem;
+    --fs-300: 1rem;
+    --fs-400: 1.275rem;
+    --fs-500: 1.563rem;
+    --fs-600: 1.953rem;
+    --fs-700: 2.441rem;
+    --fs-800: 3.052rem;
+    --fs-900: 3.815rem;
+  }
+}
+
+html::-webkit-scrollbar {
+  width: 9px;
+  background-color: #f5f5f5;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeSpeed;
+  font-size: 50%;
+}
+html, html:focus-within {
+  scroll-behavior: smooth;
+}
+@media (min-width: 37.5em) and (max-width: 56.24em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (min-width: 56.25em) and (max-width: 112.49em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img:not(.logo),
+picture:not(.logo) {
+  max-width: 100%;
+}
+
+img,
+picture {
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: currentColor;
+}
+a:hover, a:focus {
+  -webkit-text-decoration-color: var(--clr-accent-400);
+  text-decoration-color: var(--clr-accent-400);
+}
+
+/* Inherit fonts for inputs and buttons */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  outline: none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+[class^=heading-] {
+  color: var(--clr-txt-400);
+  font-weight: var(--fw-400);
+}
+@media (max-width: 30em) {
+  [class^=heading-] {
+    line-height: 1.3;
+  }
+}
+@media (max-width: 37.5em) {
+  [class^=heading-] {
+    text-align: center;
+  }
+}
+
+.heading-primary {
+  font-size: 3.8rem;
+}
+
+.heading-secondary {
+  font-size: 3.1rem;
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+}
+
+.lead {
+  margin-bottom: 1.25rem;
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.777rem;
+}
+
+h5 {
+  font-size: 1.333rem;
+}
+
+small,
+.text_small {
+  font-size: 0.75rem;
+}
+
+/*********** BODY ************/
+body {
+  position: relative;
+  background-color: var(--clr-bg-200);
+  font-family: var(--ff-primary);
+  font-size: 1.8rem;
+  font-weight: var(--fw-300);
+}
+
+main {
+  padding: 5em 0;
+}
+
+/* ////////////////////////////////////////////
+// BASE
+*/
+/* ////////////////////////////////////////////
+// COMPONENTS
+*/
+/*********** LOGO ************/
+/*********** NAVIGATION ************/
+nav {
+  padding: 1rem 1.5rem;
+}
+@media (min-width: 56.25em) {
+  nav {
+    background: transparent;
+  }
+}
+
+.header__nav--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--clr-white);
+  box-shadow: var(--light-shadow);
+}
+.header__nav--fixed .links a {
+  color: var(--clr-grey-1);
+}
+.header__nav--fixed .links a:hover {
+  color: var(--clr-secondary);
+}
+.header__nav-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+@media (min-width: 56.25em) {
+  .header__nav-mobile {
+    padding: 0;
+  }
+}
+@media (min-width: 56.25em) {
+  .header__nav-center {
+    width: 90vw;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.nav-toggle {
+  font-size: 1.5rem;
+  color: var(--clr-grey-1);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+@media (min-width: 56.25em) {
+  .nav-toggle {
+    display: none;
+  }
+}
+.nav-toggle:hover {
+  color: var(--clr-secondary);
+}
+
+@media (min-width: 56.25em) {
+  .links {
+    display: flex;
+  }
+}
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+@media (min-width: 56.25em) {
+  .links-container {
+    height: auto !important;
+  }
+}
+.links a {
+  background: var(--clr-white);
+  color: var(--clr-grey-5);
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  transition: var(--transition);
+  font-weight: bold;
+  padding: 0.75rem 0;
+}
+@media (min-width: 56.25em) {
+  .links a {
+    background: transparent;
+    color: var(--clr-white);
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    display: block;
+    transition: var(--transition);
+    margin: 0 1rem;
+    font-weight: bold;
+    padding: 0;
+  }
+}
+.links a:hover {
+  color: var(--clr-grey-1);
+}
+@media (min-width: 56.25em) {
+  .links a:hover {
+    color: var(--clr-white);
+  }
+}
+
+/*********** BUTTONS ************/
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--radius);
+  outline: none;
+  color: currentColor;
+  font: inherit;
+  letter-spacing: var(--spacing);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  mix-blend-mode: normal;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn:hover, .btn:focus {
+  outline: none;
+}
+.btn-block {
+  width: 100%;
+  padding: 1.5em 2em;
+}
+.btn-primary {
+  background-color: var(--clr-el-200);
+}
+.btn .btn--white {
+  color: var(--clr-txt-100);
+}
+/*********** FEATURE ************/
+/* ////////////////////////////////////////////
+// COMPONENTS
+*/
+/* ////////////////////////////////////////////
+// LAYOUT
+*/
+.row {
+  display: flex;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: 2rem;
+}
+@media (max-width: 37.5em) {
+  .row {
+    flex-direction: column;
+  }
+  .row > * {
+    width: 100% !important;
+  }
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+@media (max-width: 37.5em) {
+  .row:not(:last-child) {
+    margin-bottom: 6rem;
+  }
+}
+.row .col-1-of-2 {
+  width: calc((100% - 2rem) / 2);
+}
+.row .col-1-of-3 {
+  width: calc((100% - 2 * 2rem) / 3);
+}
+.row .col-2-of-3 {
+  width: calc(2 * ((100% - 2 * 2rem) / 3) + 2rem);
+}
+.row .col-1-of-4 {
+  width: calc((100% - 3 * 2rem) / 4);
+}
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - 3 * 2rem) / 4) + 2rem);
+}
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - 3 * 2rem) / 4) + 2 * 2rem);
+}
+
+/*********** HEADER ************/
+.header {
+  min-height: 90vh;
+}
+/*********** FOOTER ************/
+/* Attribution */
+.attribution {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: white;
+}
+.attribution a {
+  color: #080e26;
+}
+
+/* ////////////////////////////////////////////
+// PAGES: HOME
+*/
+/*********** SECTION: FEATURES ************/
+/*********** SECTION: POSTS ************/
+/* ////////////////////////////////////////////
+// PAGES
+*/
+/* ////////////////////////////////////////////
+// UTILITIES
+*/
+/*********** CONTAINER ************/
+.u-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 62em) {
+  .section-center {
+    width: 95vw;
+  }
+}
+/*********** FLEX ************/
+.split {
+  --width: 72rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (min-width: 60em) {
+  .split {
+    flex-direction: row;
+  }
+}
+.split > * + * {
+  margin: var(--spacer) 0 0 0;
+}
+@media (min-width: 60em) {
+  .split > * + * {
+    margin: 0 0 0 var(--spacer);
+  }
+}
+
+.u-flex--row {
+  display: flex;
+  flex-direction: row;
+}
+
+.u-flex--col {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.u-center-y {
+  display: flex;
+  align-items: center;
+}
+
+.u-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+.u-center-all {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/*********** FLOW CONTENT ************/
+.u-flow-content {
+  --flow-space: 1em;
+}
+.u-flow-content > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+/*# sourceMappingURL=main.css.map */

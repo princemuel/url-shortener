@@ -1,0 +1,58 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/type-scale' as *;
+@use '../abstracts/mq-manager' as *;
+/*!Theme Name:
+Theme URI: https://easybankers.netlify.app/
+Repository: https://github.com/pHoeniX-svg/FEM__easybank
+Description: A landing page project from frontend mentor challeges
+Author's Name: Chukwuzube Samuel
+Author's Moniker: pHoeniX-svg
+Version: 01
+*/
+
+/* ////////////////////////////////////////////
+// BASE CONFIGURATION
+*/
+:root {
+  // outputs the theme colors as css variables
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  --clr-success: hsl(134, 61%, 41%);
+  --clr-danger: hsl(354, 70%, 54%);
+
+  // outputs the font-sizes as css custom variables
+  @each $weight, $value in $font-weights {
+    --fw-#{$weight}: #{$value};
+  }
+
+  // outputs the font-sizes as css custom variables
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include media('>=desktop') {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+  --fs-xl: clamp(4.5rem, 1rem + 8vw, 9rem);
+
+  --ff-accent: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ff-primary: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --br: 0.8rem;
+  --spacer: 2rem;
+  --spacing: 0.02em;
+  --shadow-300: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --transition: all .2s ease;
+  --max-width: 114rem;
+}
