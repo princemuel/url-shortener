@@ -187,7 +187,7 @@ textarea {
 }
 
 .heading-primary {
-  font-size: 10rem;
+  font-size: 8rem;
 }
 
 .heading-secondary {
@@ -380,13 +380,14 @@ main {
   line-height: 1.1;
 }
 .hero .u-container {
-  max-width: 800px;
+  max-width: 600px;
+  margin: 0;
 }
 .hero-text {
   order: 1;
 }
 .hero-text--para {
-  font-size: 3.3rem;
+  font-size: 2.6rem;
   color: var(--clr-txt-400);
   margin-bottom: 2rem;
 }
@@ -405,9 +406,6 @@ main {
   .hero-text {
     padding: 4rem 2rem;
     text-align: center;
-  }
-  .hero-text--para {
-    font-size: 2.6rem;
   }
   .hero .heading-primary {
     font-size: 4.8rem;
