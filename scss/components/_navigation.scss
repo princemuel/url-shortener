@@ -1,26 +1,29 @@
 @use '../abstracts/functions' as f;
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
-nav {
-  padding: 1rem 1.5rem;
+
+.header__nav {
+  padding: 2rem 0;
+
   @include mq.media('>=ipad') {
     background: transparent;
   }
-}
 
-.header__nav {
   &--fixed {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--clr-white);
-    box-shadow: var(--light-shadow);
+    background: var(--clr-bg-200);
+    box-shadow: var(--shadow-100);
 
-    .links a {
-      color: var(--clr-grey-1);
-      &:hover {
-        color: var(--clr-secondary);
+    .links {
+      a {
+        color: var(--clr-txt-300);
+
+        &:hover {
+          color: var(--clr-txt-400);
+        }
       }
     }
   }
@@ -30,6 +33,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 1rem; //optional
+
     @include mq.media('>=ipad') {
       padding: 0;
     }
@@ -37,7 +41,7 @@ nav {
 
   &-center {
     @include mq.media('>=ipad') {
-      width: 90vw;
+      width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
       display: flex;
@@ -46,20 +50,31 @@ nav {
     }
   }
 }
+.banner {
+  display: flex;
 
+  &__showcase {
+    width: 50%;
+  }
+  &__img {
+    width: 50%;
+    margin-right: -1.6rem;
+    background-image: f.img('bg-intro-mobile.svg');
+    background-repeat: no-repeat;
+    @include mq.media('>=ipad') {
+      background-image: f.img('bg-intro-desktop.svg');
+    }
+  }
+}
 .nav-toggle {
-  font-size: 1.5rem;
-  color: var(--clr-grey-1);
   background: transparent;
-  border-color: transparent;
-  transition: var(--transition);
-  cursor: pointer;
+
   @include mq.media('>=ipad') {
-    display: none;
+    display: none !important;
   }
 
   &:hover {
-    color: var(--clr-secondary);
+    transform: scale(0.9);
   }
 }
 
@@ -80,33 +95,61 @@ nav {
   }
 
   a {
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
-    // font-size: 1.4rem;
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
     display: block;
+    // padding: 0.75rem 0;
+    color: var(--clr-txt-300);
+    font-size: 2rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
     transition: var(--transition);
-    font-weight: bold;
-    padding: 0.75rem 0;
+
+    // @include mq.media('<32em') {
+    //   font-size: 2.2rem;
+    // }
+
     @include mq.media('>=ipad') {
-      background: transparent;
-      color: var(--clr-white);
-      font-size: 1.1rem;
-      text-transform: capitalize;
-      letter-spacing: var(--spacing);
-      display: block;
-      transition: var(--transition);
       margin: 0 1rem;
-      font-weight: bold;
-      padding: 0;
+      color: var(--clr-txt-300);
+      font-size: 1.5rem;
     }
     &:hover {
       color: var(--clr-grey-1);
       @include mq.media('>=ipad') {
-        color: var(--clr-white);
+        color: var(--clr-txt-400);
       }
     }
   }
 }
 
+.top-link {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  background: var(--clr-secondary);
+  font-size: 1.25rem;
+  animation: bounce 2s ease-in-out infinite;
+  visibility: hidden;
+  z-index: -100;
+}
+.show-link {
+  visibility: visible;
+  z-index: 100;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
