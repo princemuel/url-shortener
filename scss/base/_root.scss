@@ -52,7 +52,9 @@ Version: 01
   --b-radius: 0.8rem;
   --spacer: 2rem;
   --spacing: 0.02em;
-  --shadow-300: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --transition: all 200ms ease;
+  --shadow-100: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);
+  --shadow-200: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  --shadow-300: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+  --transition: all 0.2s ease;
   --max-width: 114rem;
 }

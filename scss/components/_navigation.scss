@@ -4,10 +4,13 @@
 
 .header__nav {
   padding: 2rem 0;
+  color: var(--clr-txt-600);
+  font-size: 1.5rem;
+  font-weight: var(--fw-700);
 
-  @include mq.media('>=ipad') {
-    background: transparent;
-  }
+  // @include mq.media('>=ipad') {
+  //   background: transparent;
+  // }
 
   &--fixed {
     position: fixed;
@@ -45,27 +48,10 @@
       max-width: var(--max-width);
       margin: 0 auto;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
   }
 }
-.banner {
-  display: flex;
 
-  &__showcase {
-    width: 50%;
-  }
-  &__img {
-    width: 50%;
-    margin-right: -1.6rem;
-    background-image: f.img('bg-intro-mobile.svg');
-    background-repeat: no-repeat;
-    @include mq.media('>=ipad') {
-      background-image: f.img('bg-intro-desktop.svg');
-    }
-  }
-}
 .nav-toggle {
   background: transparent;
 
@@ -80,10 +66,11 @@
 
 .links {
   @include mq.media('>=ipad') {
-    // height: auto;
     display: flex;
+    align-items: center;
   }
   &-container {
+    width: 100%;
     height: 0;
     overflow: hidden;
     transition: var(--transition);
@@ -93,11 +80,16 @@
       height: auto !important;
     }
   }
+  &-cta {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
 
   a {
     display: block;
     // padding: 0.75rem 0;
-    color: var(--clr-txt-300);
+    color: var(--clr-txt-400);
     font-size: 2rem;
     letter-spacing: var(--spacing);
     text-transform: capitalize;
@@ -109,11 +101,10 @@
 
     @include mq.media('>=ipad') {
       margin: 0 1rem;
-      color: var(--clr-txt-300);
       font-size: 1.5rem;
     }
     &:hover {
-      color: var(--clr-grey-1);
+      color: var(--clr-txt-400);
       @include mq.media('>=ipad') {
         color: var(--clr-txt-400);
       }
@@ -140,16 +131,4 @@
 .show-link {
   visibility: visible;
   z-index: 100;
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
