@@ -2,15 +2,18 @@
 @use '../abstracts/mq-manager' as m;
 
 
+
+
 /*********** BODY ************/
 body {
   position: relative;
-  background-color: var(--clr-bg-200);
+  background-color: var(--clr-bg-100);
   font-family: var(--ff-primary);
   font-size: 1.8rem;
-  font-weight: var(--fw-300);
+  font-weight: var(--fw-400);
 }
 
 main {
   padding: 5em 0;
+
 }

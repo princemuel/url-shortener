@@ -5,7 +5,7 @@
 
 const currentYear = document.getElementById('date');
 
-const navbar = document.getElementById('nav');
+const navbar = document.querySelector('.header__nav');
 const navToggle = document.querySelector('.nav-toggle');
 const linksContainer = document.querySelector('.links-container');
 const links = document.querySelector('.links');
@@ -19,15 +19,11 @@ currentYear.innerHTML = new Date().getFullYear();
 
 // ********** close links ************
 navToggle.addEventListener('click', () => {
-  // removed because of hardcoded instead of dynamic height
-  // linksContainer.classList.toggle('show-links')
-  // const linksHeight = links.getBoundingClientRect().height;
-
   const containerHeight = linksContainer.getBoundingClientRect().height;
-  const { height } = links.getBoundingClientRect();
+  const linksHeight = links.getBoundingClientRect().height;
 
   containerHeight === 0
-    ? (linksContainer.style.height = `${height}px`)
+    ? (linksContainer.style.height = `${linksHeight}px`)
     : (linksContainer.style.height = 0);
 });
 
@@ -37,9 +33,9 @@ window.addEventListener('scroll', () => {
   const navHeight = navbar.getBoundingClientRect().height;
 
   scrollHeight > navHeight
-    ? navbar.classList.add('fixed-nav') &
+    ? navbar.classList.add('header__nav--fixed') &
       backToTopLink.classList.add('show-link')
-    : navbar.classList.remove('fixed-nav') &
+    : navbar.classList.remove('header__nav--fixed') &
       backToTopLink.classList.remove('show-link');
   // scrollHeight > 500
   //   ? backToTopLink.classList.add('show-link')
@@ -53,7 +49,7 @@ scrollLinks.forEach((link) => {
 
     const navHeight = navbar.getBoundingClientRect().height;
     const containerHeight = linksContainer.getBoundingClientRect().height;
-    const fixedNav = navbar.classList.contains('fixed-nav');
+    const fixedNav = navbar.classList.contains('header__nav--fixed');
     const id = e.currentTarget.getAttribute('href').slice(1);
     const element = document.getElementById(id);
 

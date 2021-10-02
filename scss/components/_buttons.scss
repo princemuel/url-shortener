@@ -19,16 +19,34 @@
     outline: none;
   }
 
-  &-block {
+  &--block {
     width: 100%;
     padding: 1.5em 2em;
   }
   &-primary {
-    background-color: var(--clr-el-200);
+    padding: 0.6rem 1.6rem;
+    border-radius: 2rem;
   }
-  .btn--white {
-    color: var(--clr-txt-100);
+  &-cta {
+    padding: 1.5rem 3rem;
+    border-radius: 0.5rem;
   }
-  .btn--animated {
+
+  &--animated {
+    animation: bounce 2s ease-in-out infinite;
+  }
+}
+a.btn--white {
+  background-color: var(--clr-el-200);
+  color: var(--clr-txt-100);
+  font-size: 1.5rem;
+  font-weight: var(--fw-700);
+
+  &:hover,
+  &:active {
+    background-color: var(--clr-bg-100);
+    color: var(--clr-bg-400);
+    animation: none;
+    transform: scale(0.95);
   }
 }
