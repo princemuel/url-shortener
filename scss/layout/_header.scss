@@ -3,7 +3,4 @@
 /*********** HEADER ************/
 .header {
   min-height: 90vh;
-
-  @include mq.media('<=tablet') {
-  }
 }

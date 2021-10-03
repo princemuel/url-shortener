@@ -187,7 +187,7 @@ textarea {
 }
 
 .heading-primary {
-  font-size: 8rem;
+  font-size: 6rem;
 }
 
 .heading-secondary {
@@ -316,6 +316,7 @@ main {
 @media (min-width: 56.25em) {
   .links-container {
     height: auto !important;
+    margin-left: 4rem;
   }
 }
 .links-cta {
@@ -355,8 +356,8 @@ main {
   width: 2rem;
   height: 2rem;
   border-radius: var(--radius);
-  color: var(--clr-white);
-  background: var(--clr-secondary);
+  color: var(--clr-txt-100);
+  background: var(--clr-bg-400);
   font-size: 1.25rem;
   animation: bounce 2s ease-in-out infinite;
   visibility: hidden;
@@ -520,6 +521,7 @@ a.btn--white:hover, a.btn--white:active {
 .header {
   min-height: 90vh;
 }
+
 /*********** FOOTER ************/
 /* Attribution */
 .attribution {

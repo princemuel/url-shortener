@@ -1,0 +1,6 @@
+hero-text-para: set font-size to 2rem; add a font-weight of 500
+heading-primary: set fz btw 6.5 to 7rem on desktop
+at <tablet hero-img to be centered
+change btn-animations and hover states
+add font-awesome to project
+make the nav mobile responsive

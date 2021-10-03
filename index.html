@@ -13,44 +13,46 @@
     />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+    <script
+      defer
+      src="https://kit.fontawesome.com/bfdd3a54d7.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="./js/main.js"></script>
   </head>
 
   <body>
     <header id="home" class="header">
       <nav id="nav" class="header__nav">
-        <div class="header__nav-center">
-          <!-- On Mobile -->
-          <div class="header__nav-mobile">
-            <img src="./images/logo.svg" alt="shortly" class="logo" />
-            <button class="btn nav-toggle open">
-              <img src="./images/icon-hamburger.svg" alt="" class="open" />
-            </button>
-            <button class="btn nav-toggle close">
-              <img src="./images/icon-hamburger.svg" alt="" class="open" />
-            </button>
-          </div>
-          <!-- On Mobile End -->
-          <div class="links-container">
-            <ul class="links">
-              <li>
-                <a href="#" class="scroll-link">Features</a>
-              </li>
-              <li>
-                <a href="#" class="scroll-link">Pricing</a>
-              </li>
-              <li>
-                <a href="#" class="scroll-link">Resources</a>
-              </li>
-              <ul class="links-cta">
-                <li><a href="#" class="scroll-link">Login</a></li>
+        <div class="u-container">
+          <div class="header__nav-center">
+            <!-- On Mobile -->
+            <div class="header__nav-mobile">
+              <img src="./images/logo.svg" alt="shortly" class="logo" />
+              <button class="btn nav-toggle open"></button>
+            </div>
+            <!-- On Mobile End -->
+            <div class="links-container">
+              <ul class="links">
                 <li>
-                  <a href="#" class="btn btn-primary btn--white btn--animated"
-                    >Sign Up</a
-                  >
+                  <a href="#" class="scroll-link">Features</a>
                 </li>
+                <li>
+                  <a href="#" class="scroll-link">Pricing</a>
+                </li>
+                <li>
+                  <a href="#" class="scroll-link">Resources</a>
+                </li>
+                <ul class="links-cta">
+                  <li><a href="#" class="scroll-link">Login</a></li>
+                  <li>
+                    <a href="#" class="btn btn-primary btn--white btn--animated"
+                      >Sign Up</a
+                    >
+                  </li>
+                </ul>
               </ul>
-            </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -68,7 +70,9 @@
             >Get Started</a
           >
         </div>
-        <div class="hero-img"><img src="images/illustration-working.svg" alt="working" /></div>
+        <div class="hero-img">
+          <img src="images/illustration-working.svg" alt="working" />
+        </div>
       </div>
     </header>
     <main>
