@@ -290,7 +290,13 @@ main {
 }
 
 .nav-toggle {
+  border-color: transparent;
+  color: var(--clr-bg-700);
   background: transparent;
+  font-size: 2.4rem;
+  font-weight: var(fw-400);
+  transition: var(--transition);
+  cursor: pointer;
 }
 @media (min-width: 56.25em) {
   .nav-toggle {
