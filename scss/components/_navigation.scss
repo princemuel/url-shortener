@@ -2,7 +2,43 @@
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
 
-.header__nav {
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: peachpuff;
+}
+
+.nav {
+  &-center {
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+  }
+  &-logo {
+    display: flex;
+    align-items: center;
+  }
+  &-toggle {
+    border-color: transparent;
+    color: var(--clr-bg-500);
+    background: transparent;
+    font-size: 2.4rem;
+    font-weight: var(fw-400);
+    transition: var(--transition);
+    cursor: pointer;
+
+    @include mq.media('>=ipad') {
+      display: none !important;
+    }
+  }
+
+}
+
+.nav .header__nav {
   padding: 2rem 0;
   color: var(--clr-txt-600);
   font-size: 1.5rem;
@@ -50,24 +86,6 @@
       margin: 0 auto;
       display: flex;
     }
-  }
-}
-
-.nav-toggle {
-  border-color: transparent;
-  color: var(--clr-bg-700);
-  background: transparent;
-  font-size: 2.4rem;
-  font-weight: var(fw-400);
-  transition: var(--transition);
-  cursor: pointer;
-
-  @include mq.media('>=ipad') {
-    display: none !important;
-  }
-
-  &:hover {
-    transform: scale(0.9);
   }
 }
 

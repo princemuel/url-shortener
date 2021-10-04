@@ -249,50 +249,26 @@ main {
 */
 /*********** LOGO ************/
 /*********** NAVIGATION ************/
-.header__nav {
-  padding: 2rem 0;
-  color: var(--clr-txt-600);
-  font-size: 1.5rem;
-  font-weight: var(--fw-700);
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: peachpuff;
 }
-.header__nav--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--clr-bg-200);
-  box-shadow: var(--shadow-100);
-  z-index: 100;
-}
-.header__nav--fixed .links a {
-  color: var(--clr-txt-300);
-}
-.header__nav--fixed .links a:hover {
-  color: var(--clr-txt-400);
-}
-.header__nav-mobile {
+
+.nav-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 2rem 0;
 }
-@media (min-width: 56.25em) {
-  .header__nav-mobile {
-    padding: 0;
-  }
+.nav-logo {
+  display: flex;
+  align-items: center;
 }
-@media (min-width: 56.25em) {
-  .header__nav-center {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-  }
-}
-
 .nav-toggle {
   border-color: transparent;
-  color: var(--clr-bg-700);
+  color: var(--clr-bg-500);
   background: transparent;
   font-size: 2.4rem;
   font-weight: var(fw-400);
@@ -304,8 +280,46 @@ main {
     display: none !important;
   }
 }
-.nav-toggle:hover {
-  transform: scale(0.9);
+
+.nav .header__nav {
+  padding: 2rem 0;
+  color: var(--clr-txt-600);
+  font-size: 1.5rem;
+  font-weight: var(--fw-700);
+}
+.nav .header__nav--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--clr-bg-200);
+  box-shadow: var(--shadow-100);
+  z-index: 100;
+}
+.nav .header__nav--fixed .links a {
+  color: var(--clr-txt-300);
+}
+.nav .header__nav--fixed .links a:hover {
+  color: var(--clr-txt-400);
+}
+.nav .header__nav-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+@media (min-width: 56.25em) {
+  .nav .header__nav-mobile {
+    padding: 0;
+  }
+}
+@media (min-width: 56.25em) {
+  .nav .header__nav-center {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+  }
 }
 
 @media (min-width: 56.25em) {
@@ -454,7 +468,7 @@ main {
   padding: 0.6rem 1.6rem;
   border-radius: 2rem;
 }
-.btn-cta {
+.btn-secondary {
   padding: 1.5rem 3rem;
   border-radius: 0.5rem;
 }

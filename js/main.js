@@ -1,7 +1,17 @@
-// Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
-// pageYOffset is a read - only window property that returns the number of pixels the document has been scrolled vertically.
-// slice extracts a section of a string without modifying original string
-//offsetTop - A Number, representing the top position of the element, in pixels
+const getElement = (selector) => {
+  const element = document.querySelector(selector);
+  if (element) {
+    return element;
+  }
+  throw Error(`Please check your selector, no element matches ${selector} `);
+};
+
+const links = getElement('.nav-links');
+const navBtn = getElement('.nav-btn');
+
+navBtn.addEventListener('click', () => {
+  links.classList.toggle('show-links');
+});
 
 const navbar = document.querySelector('.header__nav');
 const navToggle = document.querySelector('.nav-toggle');
