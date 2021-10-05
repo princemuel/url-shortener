@@ -18,14 +18,9 @@
   }
 
   &-center {
-    width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
     @include mq.media('>=ipad') {
       display: flex;
       align-items: center;
-      margin: 0 auto;
-      padding: 0 13.5rem;
     }
   }
 
