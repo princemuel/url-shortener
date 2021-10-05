@@ -2,8 +2,8 @@
 Theme URI: https://shorter-urls.netlify.app/
 Repository: https://github.com/pHoeniX-svg/url-shortener
 Description: A landing page project from frontend mentor challeges
-Authors' Names: Chukwuzube Samuel and
-Authors' Monikers: pHoeniX-svg and
+Authors' Names: Chukwuzube Samuel and Aguluka Ngozi
+Authors' Monikers: pHoeniX-svg and Aguluka Ngozi
 Version: 01
 */
 /* ////////////////////////////////////////////
@@ -19,7 +19,8 @@ Version: 01
   --clr-bg-700: #232127;
   --clr-el-100: #f46262;
   --clr-el-200: #2acfcf;
-  --clr-el-300: #6055a5;
+  --clr-el-300: #9ce3e2;
+  --clr-el-400: #6055a5;
   --clr-txt-100: white;
   --clr-txt-200: #f7f7f7;
   --clr-txt-300: #bfbfbf;
@@ -187,7 +188,7 @@ textarea {
 }
 
 .heading-primary {
-  font-size: 6rem;
+  font-size: 9rem;
 }
 
 .heading-secondary {
@@ -377,27 +378,31 @@ main {
 }
 
 .hero {
-  min-height: 80vh;
   display: flex;
+  padding: 8rem 0;
   overflow-x: hidden;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
 .hero .heading-primary {
   line-height: 1.1;
+  letter-spacing: -0.3rem;
 }
-.hero .u-container {
-  max-width: 600px;
-  margin: 0;
+.hero .heading-primary span {
+  letter-spacing: -0.2rem;
 }
 .hero-text {
+  max-width: 77rem;
+  margin: 0;
+  padding-left: 13.5rem;
   order: 1;
+  letter-spacing: var(--spacing);
 }
 .hero-text--para {
-  font-size: 2.6rem;
+  font-size: 2.52rem;
   color: var(--clr-txt-400);
-  margin-bottom: 2rem;
+  margin: 1rem 0 4rem 0;
 }
 .hero-img {
   order: 2;
@@ -407,20 +412,19 @@ main {
 .hero-img img {
   width: 100%;
 }
-@media (max-width: 31em) {
+@media (max-width: 56.25em) {
   .hero {
     flex-direction: column;
   }
   .hero-text {
     padding: 4rem 2rem;
     text-align: center;
+    max-width: 100%;
   }
   .hero .heading-primary {
-    font-size: 4.8rem;
+    font-size: 6.5rem;
     margin-bottom: 2rem;
-  }
-  .hero .u-container {
-    max-width: 100%;
+    letter-spacing: -0.2rem;
   }
   .hero-img {
     order: 0;
@@ -428,10 +432,10 @@ main {
 }
 
 /*********** BUTTONS ************/
+a.btn,
 .btn {
   display: inline-block;
   border: none;
-  border-radius: var(--radius);
   outline: none;
   color: currentColor;
   font: inherit;
@@ -443,21 +447,34 @@ main {
   cursor: pointer;
   transition: all var(--transition);
 }
-.btn:hover, .btn:focus {
+a.btn:hover, a.btn:focus,
+.btn:hover,
+.btn:focus {
   outline: none;
 }
+a.btn--block,
 .btn--block {
   width: 100%;
   padding: 1.5em 2em;
 }
+a.btn-primary,
 .btn-primary {
   padding: 0.6rem 1.6rem;
-  border-radius: 2rem;
+  background-color: var(--clr-el-200);
+  color: var(--clr-txt-100);
+  border-radius: 4rem;
 }
+a.btn-cta,
 .btn-cta {
   padding: 1.5rem 3rem;
   border-radius: 0.5rem;
 }
+a.btn-large,
+.btn-large {
+  padding: 1rem 4rem;
+  font-size: 1.8rem;
+}
+a.btn--animated,
 .btn--animated {
   animation: bounce 2s ease-in-out infinite;
 }
@@ -465,12 +482,11 @@ main {
 a.btn--white {
   background-color: var(--clr-el-200);
   color: var(--clr-txt-100);
-  font-size: 1.5rem;
   font-weight: var(--fw-700);
 }
 a.btn--white:hover, a.btn--white:active {
-  background-color: var(--clr-bg-100);
-  color: var(--clr-bg-400);
+  background-color: var(--clr-el-300);
+  color: var(--clr-bg-100);
   animation: none;
   transform: scale(0.95);
 }
