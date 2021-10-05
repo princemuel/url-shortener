@@ -23,52 +23,42 @@
 
   <body>
     <header id="home" class="header">
-      <nav id="nav" class="header__nav">
-        <div class="u-container">
-          <div class="header__nav-center">
-            <!-- On Mobile -->
-            <div class="header__nav-mobile">
+      <nav class="nav">
+        <div class="u-container nav-center">
+          <div class="nav-header">
+            <a href="/" class="nav-logo">
               <img src="./images/logo.svg" alt="shortly" class="logo" />
-              <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
-              </button>
+            </a>
+            <button class="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+          <div class="nav-links">
+            <div class="nav-links--left">
+              <a href="#" class="nav-link">Features</a>
+              <a href="#" class="nav-link">Pricing</a>
+              <a href="#" class="nav-link">Resources</a>
             </div>
-            <!-- On Mobile End -->
-            <div class="links-container">
-              <ul class="links">
-                <li>
-                  <a href="#" class="scroll-link">Features</a>
-                </li>
-                <li>
-                  <a href="#" class="scroll-link">Pricing</a>
-                </li>
-                <li>
-                  <a href="#" class="scroll-link">Resources</a>
-                </li>
-                <ul class="links-cta">
-                  <li><a href="#" class="scroll-link">Login</a></li>
-                  <li>
-                    <a href="#" class="btn btn-primary btn--white "
-                      >Sign Up</a
-                    >
-                  </li>
-                </ul>
-              </ul>
+            <div class="nav-links--right">
+              <a href="#" class="nav-link">Login</a>
+              <a
+                href="#"
+                class="btn btn-primary btn--white btn--rounded btn-signup"
+                >Sign Up</a
+              >
             </div>
           </div>
         </div>
       </nav>
-      <!--                                                ^^-->
-      <!-- I reset the nav to enable it use the fixed nav ||-->
+
       <div class="hero">
         <div class="hero-text">
-          <!-- You can set the font-sizes for the headings in the typography scss -->
           <h1 class="heading-primary">More than just <span>shorter links</span></h1>
           <p class="hero-text--para">
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
           </p>
-          <a href="#" class="btn btn-primary btn-large btn--white "
+          <a href="#" class="btn btn-primary btn-large btn--rounded btn--white "
             >Get Started</a
           >
         </div>
@@ -82,7 +72,9 @@
         <div class="u-container">
           <form>
             <input type="text" placeholder="Shorten a link here..." />
-            <button class="btn btn-primary btn--white ">
+            <button
+              class="btn btn-secondary btn-primary btn--white btn--animated"
+            >
               Shorten It!
             </button>
           </form>
@@ -223,14 +215,14 @@
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
+          >Frontend Mentor</a
         >. Coded by <a href="#">Your Name Here</a> and
         <a href="https://github.com/pHoeniX-svg" target="_blank">pHoenix-svg</a
-          >.
-        </div>
-      </footer>
-      <a class="scroll-link top-link" href="#home">
-        <i class="fas fa-arrow-up"></i>
-      </a>
+        >.
+      </div>
+    </footer>
+    <a class="scroll-link top-link" href="#home">
+      <i class="fas fa-arrow-up"></i>
+    </a>
   </body>
 </html>
