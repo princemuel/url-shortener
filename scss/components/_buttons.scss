@@ -88,9 +88,9 @@ a.btn--white {
 
   &:hover,
   &:active {
-    background-color: var(--clr-el-300);
+    // background-color: var(--clr-el-300);
     color: var(--clr-bg-100);
     animation: none;
-    transform: scale(0.95);
+    transform: scale(1.25);
   }
 }

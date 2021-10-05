@@ -4,3 +4,9 @@ at <tablet hero-img to be centered
 change btn-animations and hover states
 add font-awesome to project
 make the nav mobile responsive
+
+//Positioning navlinks
+    position: absolute;
+    width: 91%;
+    left: 50%;
+    transform: translateX(-50%);

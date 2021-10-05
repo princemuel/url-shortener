@@ -541,10 +541,9 @@ a.btn--white {
   font-weight: var(--fw-700);
 }
 a.btn--white:hover, a.btn--white:active {
-  background-color: var(--clr-el-300);
   color: var(--clr-bg-100);
   animation: none;
-  transform: scale(0.95);
+  transform: scale(1.25);
 }
 
 /*********** FEATURE ************/
