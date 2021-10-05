@@ -1,5 +1,7 @@
 @use '../abstracts/mq-manager' as mq;
 /*********** BUTTONS ************/
+
+a.btn,
 .btn {
   display: inline-block;
   border: none;
@@ -71,7 +73,10 @@
   &--curved {
     --b-radius: 0.8rem;
   }
-
+  &-large{
+    padding: 1rem 4rem;
+    font-size: 1.8rem;
+  }
   &--animated {
     animation: bounce 2s ease-in-out infinite;
   }
@@ -79,10 +84,12 @@
 
 a.btn--white {
   color: var(--clr-txt-100);
+  font-weight: var(--fw-700);
 
   &:hover,
   &:active {
-    opacity: 0.5;
+    background-color: var(--clr-el-300);
+    color: var(--clr-bg-100);
     animation: none;
     transform: scale(0.95);
   }

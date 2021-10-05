@@ -2,8 +2,8 @@
 Theme URI: https://shorter-urls.netlify.app/
 Repository: https://github.com/pHoeniX-svg/url-shortener
 Description: A landing page project from frontend mentor challeges
-Authors' Names: Chukwuzube Samuel and
-Authors' Monikers: pHoeniX-svg and
+Authors' Names: Chukwuzube Samuel and Aguluka Ngozi
+Authors' Monikers: pHoeniX-svg and Aguluka Ngozi
 Version: 01
 */
 /* ////////////////////////////////////////////
@@ -20,7 +20,8 @@ Version: 01
   --clr-bg-800: #fafafa;
   --clr-el-100: #f46262;
   --clr-el-200: #2acfcf;
-  --clr-el-300: #6055a5;
+  --clr-el-300: #9ce3e2;
+  --clr-el-400: #6055a5;
   --clr-txt-100: white;
   --clr-txt-200: #f7f7f7;
   --clr-txt-300: #bfbfbf;
@@ -188,7 +189,7 @@ textarea {
 }
 
 .heading-primary {
-  font-size: 6rem;
+  font-size: 9rem;
 }
 
 .heading-secondary {
@@ -395,27 +396,31 @@ main {
 }
 
 .hero {
-  min-height: 80vh;
   display: flex;
+  padding: 8rem 0;
   overflow-x: hidden;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
 .hero .heading-primary {
   line-height: 1.1;
+  letter-spacing: -0.3rem;
 }
-.hero .u-container {
-  max-width: 600px;
-  margin: 0;
+.hero .heading-primary span {
+  letter-spacing: -0.2rem;
 }
 .hero-text {
+  max-width: 77rem;
+  margin: 0;
+  padding-left: 13.5rem;
   order: 1;
+  letter-spacing: var(--spacing);
 }
 .hero-text--para {
-  font-size: 2.6rem;
+  font-size: 2.52rem;
   color: var(--clr-txt-400);
-  margin-bottom: 2rem;
+  margin: 1rem 0 4rem 0;
 }
 .hero-img {
   order: 2;
@@ -425,20 +430,19 @@ main {
 .hero-img img {
   width: 100%;
 }
-@media (max-width: 31em) {
+@media (max-width: 56.25em) {
   .hero {
     flex-direction: column;
   }
   .hero-text {
     padding: 4rem 2rem;
     text-align: center;
+    max-width: 100%;
   }
   .hero .heading-primary {
-    font-size: 4.8rem;
+    font-size: 6.5rem;
     margin-bottom: 2rem;
-  }
-  .hero .u-container {
-    max-width: 100%;
+    letter-spacing: -0.2rem;
   }
   .hero-img {
     order: 0;
@@ -446,6 +450,7 @@ main {
 }
 
 /*********** BUTTONS ************/
+a.btn,
 .btn {
   display: inline-block;
   border: none;
@@ -462,58 +467,82 @@ main {
   cursor: pointer;
   transition: all var(--transition);
 }
-.btn:hover, .btn:focus {
+a.btn:hover, a.btn:focus,
+.btn:hover,
+.btn:focus {
   outline: none;
 }
+a.btn-signup,
 .btn-signup {
   padding: 1.1rem 1.6rem;
   font-size: 2rem;
 }
 @media (min-width: 37.5em) {
-  .btn-signup {
+  a.btn-signup,
+.btn-signup {
     padding: 0.5rem 1.1rem;
     font-size: 1.5rem;
   }
 }
+a.btn--block,
 .btn--block {
   width: 100%;
   padding: 1.5em 2em;
 }
+a.btn-primary,
 .btn-primary {
   color: var(--clr-txt-100);
   background-color: var(--clr-el-200);
 }
+a.btn-secondary,
 .btn-secondary {
   color: var(--clr-txt-100);
   background-color: var(--clr-bg-600);
 }
-.btn-primary:hover, .btn-primary:active, .btn-secondary:hover, .btn-secondary:active {
+a.btn-primary:hover, a.btn-primary:active, a.btn-secondary:hover, a.btn-secondary:active,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-secondary:hover,
+.btn-secondary:active {
   opacity: 0.5;
 }
+a.btn--sm,
 .btn--sm {
   padding: 0.6rem 1.6rem;
 }
+a.btn--md,
 .btn--md {
   padding: 0.6rem 1.6rem;
 }
+a.btn--lg,
 .btn--lg {
   padding: 0.6rem 1.6rem;
 }
+a.btn--rounded,
 .btn--rounded {
   --b-radius: 4rem;
 }
+a.btn--curved,
 .btn--curved {
   --b-radius: 0.8rem;
 }
+a.btn-large,
+.btn-large {
+  padding: 1rem 4rem;
+  font-size: 1.8rem;
+}
+a.btn--animated,
 .btn--animated {
   animation: bounce 2s ease-in-out infinite;
 }
 
 a.btn--white {
   color: var(--clr-txt-100);
+  font-weight: var(--fw-700);
 }
 a.btn--white:hover, a.btn--white:active {
-  opacity: 0.5;
+  background-color: var(--clr-el-300);
+  color: var(--clr-bg-100);
   animation: none;
   transform: scale(0.95);
 }
