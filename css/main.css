@@ -3,7 +3,7 @@ Theme URI: https://shorter-urls.netlify.app/
 Repository: https://github.com/pHoeniX-svg/url-shortener
 Description: A landing page project from frontend mentor challeges
 Authors' Names: Chukwuzube Samuel and Aguluka Ngozi
-Authors' Monikers: pHoeniX-svg and Aguluka Ngozi
+Authors' Monikers: pHoeniX-svg and Melissacinta
 Version: 01
 */
 /* ////////////////////////////////////////////
@@ -20,8 +20,7 @@ Version: 01
   --clr-bg-800: #fafafa;
   --clr-el-100: #f46262;
   --clr-el-200: #2acfcf;
-  --clr-el-300: #9ce3e2;
-  --clr-el-400: #6055a5;
+  --clr-el-300: #6055a5;
   --clr-txt-100: white;
   --clr-txt-200: #f7f7f7;
   --clr-txt-300: #bfbfbf;
@@ -541,10 +540,9 @@ a.btn--white {
   font-weight: var(--fw-700);
 }
 a.btn--white:hover, a.btn--white:active {
-  background-color: var(--clr-el-300);
   color: var(--clr-bg-100);
   animation: none;
-  transform: scale(0.95);
+  transform: scale(1.25);
 }
 
 /*********** FEATURE ************/
