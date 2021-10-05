@@ -23,30 +23,43 @@
     width: 100%;
     padding: 1.5em 2em;
   }
+
   &-primary {
-    padding: 0.6rem 1.6rem;
     border-radius: 2rem;
+    background-color: var(--clr-el-200);
+    
+
+    &:hover,
+    &:active {
+      opacity: 0.5;
+    }
   }
-  &-cta {
+
+  &-secondary {
     padding: 1.5rem 3rem;
     border-radius: 0.5rem;
+  }
+  &--sm {
+    padding: 0.6rem 1.6rem;
+  }
+  &--md {
+  }
+  &--lg {
   }
 
   &--animated {
     animation: bounce 2s ease-in-out infinite;
   }
 }
-
-a.btn--white {
-  background-color: var(--clr-el-200);
-  color: var(--clr-txt-100);
+.btn {
   font-size: 1.5rem;
   font-weight: var(--fw-700);
+}
+a.btn--white {
 
   &:hover,
   &:active {
-    background-color: var(--clr-bg-100);
-    color: var(--clr-bg-400);
+    opacity: 0.5;
     animation: none;
     transform: scale(0.95);
   }

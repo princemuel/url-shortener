@@ -2,121 +2,122 @@
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
 
-.header__nav {
-  padding: 2rem 0;
-  color: var(--clr-txt-600);
-  font-size: 1.5rem;
-  font-weight: var(--fw-700);
-
-  // @include mq.media('>=ipad') {
-  //   background: transparent;
-  // }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &--fixed {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--clr-bg-200);
+    background: var(--clr-bg-800);
     box-shadow: var(--shadow-100);
     z-index: 100;
-
-    .links {
-      a {
-        color: var(--clr-txt-300);
-
-        &:hover {
-          color: var(--clr-txt-400);
-        }
-      }
-    }
-  }
-
-  &-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem; //optional
-
-    @include mq.media('>=ipad') {
-      padding: 0;
-    }
   }
 
   &-center {
+    position: relative;
     @include mq.media('>=ipad') {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
       display: flex;
+      align-items: center;
     }
   }
-}
 
-.nav-toggle {
-  border-color: transparent;
-  color: var(--clr-bg-700);
-  background: transparent;
-  font-size: 2.4rem;
-  font-weight: var(fw-400);
-  transition: var(--transition);
-  cursor: pointer;
-
-  @include mq.media('>=ipad') {
-    display: none !important;
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
   }
 
-  &:hover {
-    transform: scale(0.9);
-  }
-}
-
-.links {
-  @include mq.media('>=ipad') {
+  &-logo {
     display: flex;
     align-items: center;
   }
 
-  &-container {
-    width: 100%;
+  &-toggle {
+    border-color: transparent;
+    color: var(--clr-bg-200);
+    background: transparent;
+    font-size: 3rem;
+    transition: var(--transition);
+    cursor: pointer;
+    @include mq.media('>=ipad') {
+      display: none;
+    }
+  }
+
+  &-links {
+    border-radius: var(--b-radius);
+    background-color: var(--clr-bg-600);
+    z-index: 100;
+
+    //hides the links before & after toggling
     height: 0;
     overflow: hidden;
-    transition: var(--transition);
-
-    // overwrites the inlined style
+    transition: all 0.2s ease;
     @include mq.media('>=ipad') {
-      height: auto !important;
-      margin-left: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 1.5rem;
+      width: 100%;
+      height: auto;
+      background-color: var(--clr-bg-100);
     }
-  }
 
-  &-cta {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
+    & .nav-link {
+      padding-bottom: 3rem;
+      color: var(--clr-txt-100);
+      font-size: 2rem;
+      font-weight: var(--fw-700);
 
-  a {
-    display: block;
-    // padding: 0.75rem 0;
-    color: var(--clr-txt-400);
-    font-size: 2rem;
-    letter-spacing: var(--spacing);
-    text-transform: capitalize;
-    transition: var(--transition);
-
-    // @include mq.media('<32em') {
-    //   font-size: 2.2rem;
-    // }
-
-    @include mq.media('>=ipad') {
-      margin: 0 1rem;
-      font-size: 1.5rem;
-    }
-    &:hover {
-      color: var(--clr-txt-400);
       @include mq.media('>=ipad') {
+        padding: 0 1rem;
         color: var(--clr-txt-400);
+        font-size: 1.5rem;
+
+        &:hover {
+          color: var(--clr-txt-500);
+        }
+      }
+    }
+
+    & > &--left,
+    & > &--right {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      @include mq.media('>=ipad') {
+        flex-direction: row;
+      }
+    }
+
+    & > &--left {
+      padding: 0 4rem;
+      padding-top: 4rem;
+      @include mq.media('>=ipad') {
+        padding: 0;
+      }
+    }
+
+    &--right {
+      padding: 0 4rem;
+      // padding-bottom: 4rem; //check this later when u add the btn
+      @include mq.media('>=ipad') {
+        padding: 0;
+      }
+
+      & :first-child {
+        padding-top: 3rem;
+        border-top: 1px solid var(--clr-txt-400);
+
+        @include mq.media('>=ipad') {
+          padding: 0;
+          border: 0;
+        }
       }
     }
   }
