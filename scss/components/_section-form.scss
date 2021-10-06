@@ -1,0 +1,104 @@
+@use '../abstracts/functions' as f;
+@use "../abstracts/mq-manager" as mq;
+
+.section-form{
+    background-color: var(--clr-bg-900);
+    background-blend-mode: lighten;
+  
+    &__container{
+        form{
+            display: flex;
+            width: 100%;
+            background: f.img("bg-shorten-desktop.svg");
+            padding: 6rem 8rem;
+            background-size: 100%;
+            background-color: rebeccapurple;
+            background-repeat: no-repeat;
+            border-radius: 1rem;
+            gap: 1rem;
+            .input{
+                flex: 1;
+                input{
+                    width: 100%;
+                    padding: 1.5rem;
+                    border: none;
+                    outline: none;
+                    font-size: 1.8rem;
+                    border-radius: 1rem;
+                }
+                .invalid{
+                    color: var(--clr-el-100);
+                    line-height: 2.8rem;
+                    font-style: italic;
+                }
+                input.invalid{
+                    font-style:normal;
+                    border: 2px solid var(--clr-el-100);
+                }
+                input.invalid::-webkit-input-placeholder,:-ms-input-placeholder,::placeholder{
+                    color: var(--clr-el-100);
+                }
+            }
+        }
+
+        .shortened-links{
+            width: 100%;
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            .shortened-link{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--clr-bg-100);
+                padding: 2rem 3rem;
+                border-radius: .5rem;
+
+                &--right{
+                    display: flex;
+                    gap: 2rem;
+                    align-items: center;
+                    a{
+                        color: var(--clr-el-200);
+                    }
+                }
+            }
+        }
+    }
+    @include mq.media("<=ipad") {
+        &__container{
+            // display: flex;
+            form{
+                flex-direction: column;
+                background-image: f.img("bg-shorten-mobile.svg");
+                padding: 3rem 4rem;
+                background-size: auto;
+                background-position: right top;
+            }
+
+            .shortened-links{
+                .shortened-link{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    padding:0;
+
+                    &--right,
+                    &--left{
+                        padding: 2rem;
+                        
+                    }
+                    &--right{
+                        border-top: 1px solid var(--clr-bg-900);
+                        width: 100%;
+                        flex-direction: column;
+                        align-items: stretch;
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+    }
+  }

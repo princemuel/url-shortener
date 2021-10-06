@@ -80,6 +80,15 @@ a.btn,
   &--animated {
     animation: bounce 2s ease-in-out infinite;
   }
+  &--copied{
+    padding: 1rem 2.7rem;
+  }
+  
+  &--shorten{
+    padding: 1.7rem 4rem;
+    width: 100%
+  }
+  
 }
 
 a.btn--white {
@@ -90,6 +99,6 @@ a.btn--white {
   &:active {
     color: var(--clr-bg-100);
     animation: none;
-    transform: scale(1.25);
+    // transform: scale(0.95);
   }
 }
