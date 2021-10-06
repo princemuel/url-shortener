@@ -1,4 +1,4 @@
-@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as mx;
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
 
@@ -49,11 +49,9 @@
   }
 
   &-links {
-    position: absolute;
-    width: 91%;
-    left: 50%;
-    transform: translateX(-50%);
+    @include mx.center-abs('hz');
 
+    width: 91%; //magic number
     border-radius: var(--b-radius);
     background-color: var(--clr-bg-600);
     z-index: 100;
