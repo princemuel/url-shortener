@@ -1,4 +1,4 @@
-@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as mx;
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
 
@@ -18,7 +18,7 @@
   }
 
   &-center {
-    @include mq.media('>=tablet') {
+    @include mq.media('>=ipad') {
       display: flex;
       align-items: center;
     }
@@ -43,12 +43,15 @@
     font-size: 3rem;
     transition: var(--transition);
     cursor: pointer;
-    @include mq.media('>=tablet') {
+    @include mq.media('>=ipad') {
       display: none;
     }
   }
 
   &-links {
+    @include mx.center-abs('hz');
+
+    width: 91%; //magic number
     border-radius: var(--b-radius);
     background-color: var(--clr-bg-600);
     z-index: 100;
@@ -57,7 +60,11 @@
     height: 0;
     overflow: hidden;
     transition: all 0.2s ease;
-    @include mq.media('>=tablet') {
+    @include mq.media('>=ipad') {
+      position: static;
+      left: 0;
+      transform: translateX(0);
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -72,7 +79,7 @@
       color: var(--clr-txt-100);
       font-size: 2rem;
       font-weight: var(--fw-700);
-      @include mq.media('>=tablet') {
+      @include mq.media('>=ipad') {
         padding: 0 1rem;
         color: var(--clr-txt-400);
         font-size: 1.5rem;
@@ -88,7 +95,7 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      @include mq.media('>=tablet') {
+      @include mq.media('>=ipad') {
         flex-direction: row;
       }
     }
@@ -96,7 +103,7 @@
     & > &--left {
       padding: 0 4rem;
       padding-top: 4rem;
-      @include mq.media('>=tablet') {
+      @include mq.media('>=ipad') {
         padding: 0;
       }
     }
@@ -104,7 +111,7 @@
     &--right {
       padding: 0 4rem;
       padding-bottom: 4rem;
-      @include mq.media('>=tablet') {
+      @include mq.media('>=ipad') {
         align-items: center;
         padding: 0;
       }
@@ -112,7 +119,7 @@
       & :first-child {
         padding-top: 3rem;
         border-top: 1px solid var(--clr-txt-400);
-        @include mq.media('>=tablet') {
+        @include mq.media('>=ipad') {
           padding: 0;
           padding-right: 2rem;
           border: 0;

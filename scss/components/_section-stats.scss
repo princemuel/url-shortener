@@ -1,0 +1,26 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/mq-manager' as mq;
+
+/*********** SECTION: STATS ************/
+.section-stats {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+  background-color: var(--clr-el-400); //bg 200 was not light enough
+  background-blend-mode: lighten;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 9rem;
+  }
+
+  &__info {
+    max-width: 45ch;
+    color: var(--clr-txt-300);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}

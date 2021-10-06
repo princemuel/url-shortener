@@ -10,33 +10,37 @@
     text-align: center;
   }
 }
-.heading-primary {
-  font-size: 9rem; 
+.heading {
+  &-primary {
+    font-size: 9rem;
+  }
+
+  &-secondary {
+    font-size: 3.5rem;
+  }
+
+  &-tertiary {
+    font-size: 19px;
+  }
 }
 
-.heading-secondary {
-  font-size: 3.1rem;
-}
-.heading-tertiary {
-  font-size: 2rem;
-}
 .lead {
   margin-bottom: 1.25rem;
   font-size: 1.8rem;
 }
 
-h4 {
-  font-size: 1.777rem;
-}
+// h4 {
+//   font-size: 1.777rem;
+// }
 
-h5 {
-  font-size: 1.333rem;
-}
+// h5 {
+//   font-size: 1.333rem;
+// }
 
-small,
-.text_small {
-  font-size: 1.8rem;
-}
+// small,
+// .text_small {
+//   font-size: 1.8rem;
+// }
 
 // h1 {
 //   margin-top: 0;

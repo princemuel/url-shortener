@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
@@ -24,7 +28,7 @@
   <body>
     <header id="home" class="header">
       <nav class="nav">
-        <div class="u-container nav-center">
+        <div class="section nav-center">
           <div class="nav-header">
             <a href="/" class="nav-logo">
               <img src="./images/logo.svg" alt="shortly" class="logo" />
@@ -53,7 +57,9 @@
 
       <div class="hero">
         <div class="hero-text">
-          <h1 class="heading-primary">More than just <span>shorter links</span></h1>
+          <h1 class="heading-primary">
+            More than just <span>shorter links</span>
+          </h1>
           <p class="hero-text--para">
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
@@ -103,73 +109,68 @@
         </div>
       </section>
 
-      <section>
-        <div>
-          <h2>Advanced Statistics</h2>
-          <p>
+      <section class="section section-stats">
+        <header class="section-stats__header u-flow-content">
+          <h2 class="heading-secondary">Advanced Statistics</h2>
+          <p class="section-stats__info">
             Track how your links are performing across the web with our advanced
             statistics dashboard.
           </p>
-        </div>
+        </header>
 
-        <div>
-          <div>
-            <div>
+        <div class="stats">
+          <article class="stat u-flow-content stat--one">
+            <div class="stat__icon--wrapper">
               <img
                 src="./images/icon-brand-recognition.svg"
+                class="stat__icon"
                 alt="brand-recognition"
               />
             </div>
-            <div>
-              <h3>Brand Recognition</h3>
-              <p>
-                Boost your brand recognition with each click. Generic links
-                don’t mean a thing. Branded links help instil confidence in your
-                content.
-              </p>
-            </div>
-          </div>
+            <h3 class="heading-tertiary">Brand Recognition</h3>
+            <p class="stat__text">
+              Boost your brand recognition with each click. Generic links don’t
+              mean a thing. Branded links help instil confidence in your
+              content.
+            </p>
+          </article>
 
-          <div>
-            <div>
+          <article class="stat u-flow-content stat--two">
+            <div class="stat__icon--wrapper">
               <img
                 src="./images/icon-detailed-records.svg"
+                class="stat__icon"
                 alt="detailed-records"
               />
             </div>
-            <div>
-              <h3>Detailed Records</h3>
-              <p>
-                Gain insights into who is clicking your links. Knowing when and
-                where people engage with your content helps inform better
-                decisions.
-              </p>
-            </div>
-          </div>
+            <h3 class="heading-tertiary">Detailed Records</h3>
+            <p class="stat__text">
+              Gain insights into who is clicking your links. Knowing when and
+              where people engage with your content helps inform better
+              decisions.
+            </p>
+          </article>
 
-          <div>
-            <div>
+          <article class="stat u-flow-content stat--three">
+            <div class="stat__icon--wrapper">
               <img
                 src="./images/icon-fully-customizable.svg"
+                class="stat__icon"
                 alt="Fully Customizable"
               />
             </div>
-            <div>
-              <h3>Fully Customizable</h3>
-              <p>
-                Improve brand awareness and content discoverability through
-                customizable links, supercharging audience engagement.
-              </p>
-            </div>
-          </div>
+            <h3 class="heading-tertiary">Fully Customizable</h3>
+            <p class="stat__text">
+              Improve brand awareness and content discoverability through
+              customizable links, supercharging audience engagement.
+            </p>
+          </article>
         </div>
       </section>
 
       <section>
         <h2>Boost your links today</h2>
-        <a href="#" class="btn btn-primary btn--white "
-          >Get Started</a
-        >
+        <a href="#" class="btn btn-primary btn--white">Get Started</a>
       </section>
     </main>
 
@@ -215,7 +216,8 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="https://github.com/Melissacinta">Melissacinta</a> and
+        >. Coded by
+        <a href="https://github.com/Melissacinta">Melissacinta</a> and
         <a href="https://github.com/pHoeniX-svg" target="_blank">pHoenix-svg</a
         >.
       </div>

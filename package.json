@@ -4,10 +4,10 @@
   "description": "A project which integrates",
   "main": "index.js",
   "scripts": {
-    "scss": "sass --no-source-map sass:css",
     "watch": "sass --watch scss/index.scss css/main.css",
     "serve": "browser-sync start --server --watch --files --port 3000",
-    "start": "npm-run-all --parallel watch serve"
+    "start": "npm-run-all --parallel watch serve",
+    "build": "sass --no-source-map --style=compressed --charset scss/index.scss css/main.css"
   },
   "repository": {
     "type": "git",
