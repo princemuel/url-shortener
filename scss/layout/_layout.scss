@@ -1,13 +1,21 @@
-@use '../abstracts/mq-manager' as *;
+@use '../abstracts/mq-manager' as mq;
 @use '../abstracts/variables' as *;
 
 /* ////////////////////////////////////////////
 // LAYOUT
 */
 
-// [class^='section-'] {
-//   padding: 5rem 0;
-// }
+.section {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @include mq.media('>=ipad') {
+    padding-left: 13.5rem;
+    padding-right: 13.5rem;
+    margin: 0 auto;
+  }
+}
 
 .row {
   display: flex;
@@ -16,7 +24,7 @@
   margin: 0 auto;
   gap: $gap;
 
-  @include media('<=tablet') {
+  @include mq.media('<=tablet') {
     flex-direction: column;
     & > * {
       width: 100% !important;
@@ -26,7 +34,7 @@
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
 
-    @include media('<=tablet') {
+    @include mq.media('<=tablet') {
       margin-bottom: $gutter-vertical-small;
     }
   }
@@ -58,7 +66,7 @@
   }
 }
 
-// @include media('<=tablet') {
+// @include mq.media('<=tablet') {
 //     // [class^='col-'] {
 //     //   width: 100% !important; //makes the flex items take full width
 //     // }

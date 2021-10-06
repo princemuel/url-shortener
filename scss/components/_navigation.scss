@@ -1,4 +1,4 @@
-@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as mx;
 @use '../abstracts/mq-manager' as mq;
 /*********** NAVIGATION ************/
 
@@ -18,14 +18,9 @@
   }
 
   &-center {
-    width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
     @include mq.media('>=ipad') {
       display: flex;
       align-items: center;
-      margin: 0 auto;
-      padding: 0 13.5rem;
     }
   }
 
@@ -54,11 +49,9 @@
   }
 
   &-links {
-    position: absolute;
-    width: 91%;
-    left: 50%;
-    transform: translateX(-50%);
+    @include mx.center-abs('hz');
 
+    width: 91%; //magic number
     border-radius: var(--b-radius);
     background-color: var(--clr-bg-600);
     z-index: 100;

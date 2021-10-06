@@ -1,0 +1,72 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/mq-manager' as mq;
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  width: 100%;
+  height: auto;
+
+  @include mq.media('>=ipad') {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    height: 34rem;
+  }
+}
+
+/*********** COMPONENT: STAT ************/
+.stat {
+  --flow-space: 1.3em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 36rem;
+  padding: 0 2.8rem;
+  padding-bottom: 4rem;
+  border-radius: var(--b-radius);
+  background-color: var(--clr-bg-100);
+  text-align: center;
+
+  @include mq.media('>=ipad') {
+    align-items: flex-start;
+    text-align: left;
+    width: 30%;
+    max-width: 40rem;
+    &--two {
+      align-self: center;
+    }
+    &--three {
+      align-self: flex-end;
+    }
+  }
+
+  &__icon {
+    @include mx.center-abs('both');
+
+    &--wrapper {
+      position: relative;
+      @include mx.size(9rem);
+      margin-top: -4.5rem;
+      border-radius: 50%;
+      background-color: var(--clr-bg-600);
+      // mix-blend-mode: color;
+    }
+  }
+
+  &__text {
+    color: var(--clr-txt-300);
+    font-size: 14.4px;
+    line-height: 1.6;
+  }
+
+  // &--one {
+  // }
+}
