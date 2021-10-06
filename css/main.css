@@ -192,7 +192,7 @@ textarea {
   font-size: 9rem;
 }
 .heading-secondary {
-  font-size: 3.1rem;
+  font-size: 3.5rem;
 }
 .heading-tertiary {
   font-size: 19px;
@@ -635,6 +635,17 @@ a.btn--white:hover, a.btn--white:active {
   flex-direction: column;
   align-items: center;
   gap: 10rem;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 56.25em) {
+  .stats {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    height: 34rem;
+  }
 }
 
 /*********** COMPONENT: STAT ************/
@@ -654,7 +665,16 @@ a.btn--white:hover, a.btn--white:active {
 }
 @media (min-width: 56.25em) {
   .stat {
+    align-items: flex-start;
     text-align: left;
+    width: 30%;
+    max-width: 40rem;
+  }
+  .stat--two {
+    align-self: center;
+  }
+  .stat--three {
+    align-self: flex-end;
   }
 }
 .stat__icon {
@@ -673,7 +693,8 @@ a.btn--white:hover, a.btn--white:active {
 }
 .stat__text {
   color: var(--clr-txt-300);
-  font-size: 14px;
+  font-size: 14.4px;
+  line-height: 1.6;
 }
 
 /*********** SECTION: STATS ************/
