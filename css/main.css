@@ -639,27 +639,45 @@ a.btn--white:hover, a.btn--white:active {
 }
 
 /*********** FEATURE ************/
-.stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10rem;
-  width: 100%;
-  height: auto;
+/*********** COMPONENT: LINE ************/
+.line {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  width: 200%;
+  height: 5px;
+  background-color: var(--clr-bg-400);
+  z-index: 1;
+}
+@media (min-width: 31em) {
+  .line {
+    width: 100%;
+  }
 }
 @media (min-width: 56.25em) {
-  .stats {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 4rem;
-    height: 34rem;
+  .line {
+    height: 0;
+    visibility: hidden;
+    bottom: 50%;
+    left: 11.5%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+@media (min-width: 75em) {
+  .line {
+    height: 5px;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
   }
 }
 
 /*********** COMPONENT: STAT ************/
 .stat {
   --flow-space: 1.3em;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -671,11 +689,19 @@ a.btn--white:hover, a.btn--white:active {
   border-radius: var(--b-radius);
   background-color: var(--clr-bg-100);
   text-align: center;
+  z-index: 2;
 }
 @media (min-width: 56.25em) {
   .stat {
     align-items: flex-start;
+    width: 80%;
+    max-width: none;
     text-align: left;
+  }
+}
+@media (min-width: 75em) {
+  .stat {
+    align-items: flex-start;
     width: 30%;
     max-width: 40rem;
   }
@@ -710,7 +736,7 @@ a.btn--white:hover, a.btn--white:active {
 .section-stats {
   padding-top: 15rem;
   padding-bottom: 15rem;
-  background-color: var(--clr-el-400);
+  background-color: var(--clr-bg-900);
   background-blend-mode: lighten;
 }
 .section-stats__header {
@@ -725,6 +751,30 @@ a.btn--white:hover, a.btn--white:active {
   color: var(--clr-txt-300);
   font-size: 15px;
   line-height: 1.6;
+}
+.section-stats .stats {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 56.25em) {
+  .section-stats .stats {
+    justify-content: space-between;
+    gap: 8rem;
+  }
+}
+@media (min-width: 75em) {
+  .section-stats .stats {
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    height: 34rem;
+  }
 }
 
 .section-form {
