@@ -23,4 +23,27 @@
     font-size: 15px;
     line-height: 1.6;
   }
+
+  & .stats {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+    width: 100%;
+    height: auto;
+
+    @include mq.media('>=ipad') {
+      justify-content: space-between;
+      gap: 8rem;
+    }
+
+    @include mq.media('>=desktop') {
+      flex-flow: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 4rem;
+      height: 34rem;
+    }
+  }
 }

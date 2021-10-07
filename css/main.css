@@ -500,6 +500,17 @@ a.btn--white:hover, a.btn--white:active {
 }
 @media (min-width: 56.25em) {
   .line {
+    height: 0;
+    visibility: hidden;
+    bottom: 50%;
+    left: 11.5%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+@media (min-width: 75em) {
+  .line {
+    height: 5px;
+    visibility: visible;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -658,31 +669,6 @@ a.btn--white:hover, a.btn--white:active {
   z-index: 100;
 }
 
-.stats {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10rem;
-  width: 100%;
-  height: auto;
-}
-@media (min-width: 56.25em) {
-  .stats {
-    justify-content: space-between;
-    gap: 8rem;
-  }
-}
-@media (min-width: 75em) {
-  .stats {
-    flex-flow: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 4rem;
-    height: 34rem;
-  }
-}
-
 /*********** COMPONENT: STAT ************/
 .stat {
   --flow-space: 1.3em;
@@ -700,9 +686,10 @@ a.btn--white:hover, a.btn--white:active {
   text-align: center;
   z-index: 2;
 }
-@media (min-width: 56.25em) and (max-width: 74.99em) {
+@media (min-width: 56.25em) {
   .stat {
     align-items: flex-start;
+    width: 80%;
     max-width: none;
     text-align: left;
   }
@@ -759,6 +746,30 @@ a.btn--white:hover, a.btn--white:active {
   color: var(--clr-txt-300);
   font-size: 15px;
   line-height: 1.6;
+}
+.section-stats .stats {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 56.25em) {
+  .section-stats .stats {
+    justify-content: space-between;
+    gap: 8rem;
+  }
+}
+@media (min-width: 75em) {
+  .section-stats .stats {
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    height: 34rem;
+  }
 }
 
 .section-form {
