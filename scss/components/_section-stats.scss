@@ -6,7 +6,7 @@
 .section-stats {
   padding-top: 15rem;
   padding-bottom: 15rem;
-  background-color: var(--clr-el-400); //bg 200 was not light enough
+  background-color: var(--clr-bg-900); //bg 200 was not light enough
   background-blend-mode: lighten;
 
   &__header {

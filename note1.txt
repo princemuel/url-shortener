@@ -10,3 +10,5 @@ make the nav mobile responsive
     width: 91%;
     left: 50%;
     transform: translateX(-50%);
+
+//bg of form is --clr-bg-600 && bg-img needs to come down a bit
