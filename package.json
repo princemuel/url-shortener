@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A project which integrates",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "watch": "sass --watch scss/index.scss css/main.css",
     "serve": "browser-sync start --server --watch --files --port 3000",
