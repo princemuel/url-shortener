@@ -215,6 +215,7 @@ body {
 
 main {
   padding: 5em 0;
+  padding-bottom: 0;
 }
 
 /*********** ANIMATIONS ************/
@@ -938,6 +939,25 @@ a.btn--white:hover, a.btn--white:active {
   .section-footer .social-links {
     gap: 2.8rem;
   }
+}
+
+/*********** SECTION: CTA ************/
+.section-cta {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: var(--clr-bg-600);
+  background-image: url(../images/bg-boost-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+@media (min-width: 56.25em) {
+  .section-cta {
+    background-image: url(../images/bg-boost-desktop.svg);
+  }
+}
+.section-cta h2 {
+  color: var(--clr-txt-100);
 }
 
 /* ////////////////////////////////////////////

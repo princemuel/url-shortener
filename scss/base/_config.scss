@@ -1,9 +1,6 @@
 @use '../abstracts/functions' as f;
 @use '../abstracts/mq-manager' as m;
 
-
-
-
 /*********** BODY ************/
 body {
   position: relative;
@@ -15,5 +12,5 @@ body {
 
 main {
   padding: 5em 0;
-
+  padding-bottom: 0;
 }
