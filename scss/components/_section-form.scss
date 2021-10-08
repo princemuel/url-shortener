@@ -4,20 +4,27 @@
 .section-form{
     background-color: var(--clr-bg-900);
     background-blend-mode: lighten;
-  
+    padding-left: 13.5rem;
+    padding-right: 13.5rem;
+    margin: 0 auto;
+  position: relative;
+  margin-bottom: -100px;
     &__container{
+        position: relative;
+        top: -84px;
         form{
             display: flex;
             width: 100%;
             background: f.img("bg-shorten-desktop.svg");
             padding: 6rem 8rem;
-            background-size: 100%;
-            background-color: rebeccapurple;
+            background-size: 103%;
+            background-color: var(--clr-bg-600);
             background-repeat: no-repeat;
             border-radius: 1rem;
             gap: 1rem;
             .input{
                 flex: 1;
+                position: relative;
                 input{
                     width: 100%;
                     padding: 1.5rem;
@@ -34,6 +41,9 @@
                 input.invalid{
                     font-style:normal;
                     border: 2px solid var(--clr-el-100);
+                }
+                p.invalid{
+                    position: absolute;
                 }
                 input.invalid::-webkit-input-placeholder,:-ms-input-placeholder,::placeholder{
                     color: var(--clr-el-100);
@@ -67,6 +77,9 @@
         }
     }
     @include mq.media("<=ipad") {
+        width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
         &__container{
             // display: flex;
             form{
@@ -75,6 +88,14 @@
                 padding: 3rem 4rem;
                 background-size: auto;
                 background-position: right top;
+                gap: 1.8rem;
+                .input{
+                    
+                    p.invalid{
+                        // padding: 10rem;
+                    position: relative;
+                }
+            }
             }
 
             .shortened-links{

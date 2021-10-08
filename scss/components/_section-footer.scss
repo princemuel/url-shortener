@@ -1,0 +1,58 @@
+@use '../abstracts/functions' as f;
+@use "../abstracts/mq-manager" as mq;
+
+.section-footer{
+    background-color: var(--clr-bg-700);
+    color: var(--clr-txt-100);
+    display: flex;
+    // justify-content: space-between;
+    // gap: 5.2rem;
+    padding: 6rem;
+    & > div{
+        flex: 1;
+    }
+    img{
+        fill: var(--clr-txt-100);
+        -webkit-filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%);
+        filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%);
+    }
+    .footer-links{
+        display: flex;
+        ul li:first-child{
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        ul li:not(:first-child){
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--clr-txt-300);
+        }
+
+        a:hover{
+            color: var(--clr-el-200);
+        }
+    }
+    .quick-links{
+        flex: 2;
+        justify-content: space-between;
+        font-size: 1.6rem;
+    }
+    .social-links{
+        justify-content: right;
+        gap: 1.6rem;
+        font-size: 3.2rem;
+        margin-top: -1rem;
+    }
+    @include mq.media("<=ipad") {
+        flex-direction: column;
+        align-items: center;
+        .quick-links{
+            flex-direction: column;
+            text-align: center;
+        }
+        .social-links{
+            gap: 2.8rem;
+        }
+    }
+}

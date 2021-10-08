@@ -2,17 +2,21 @@
 
 /* Attribution */
 .attribution {
-  position: absolute;
+  position: relative;
   text-align: center;
   left: 0;
   right: 0;
   bottom: 0;
-  padding-bottom: 0.5rem;
-  font-size: .8rem;
+  padding: 2rem;
+  font-size: 1.4rem;
   color: white;
+  background-color: var(--clr-txt-500);
 
   a {
-    color: hsl(228, 65%, 9%);
+    color: var(--clr-el-200);
+  }
+  a:hover{
+    text-decoration: underline;
   }
 }
 
