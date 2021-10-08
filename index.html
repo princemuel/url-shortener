@@ -74,7 +74,7 @@
       </div>
     </header>
     <main>
-      <section class="section section-form">
+      <section class="section-form">
         <div class="section-form__container">
           <form>
             <div class="input">
@@ -85,11 +85,9 @@
               />
               <p class="invalid">Please add a link</p>
             </div>
-            <div>
               <button class="btn btn-primary btn--shorten btn--white">
                 Shorten It!
               </button>
-            </div>
           </form>
           <ul class="shortened-links">
             <li class="shortened-link">
@@ -111,6 +109,28 @@
                 <a>https://rel.ink/k4lKyk</a>
                 <button class="btn btn-secondary btn--copied btn--white">
                   copied!
+                </button>
+              </div>
+            </li>
+            <li class="shortened-link">
+              <div class="shortened-link--left">
+                <p>https://www.frontendmentor.io</p>
+              </div>
+              <div class="shortened-link--right">
+                <a>https://rel.ink/k4lKyk</a>
+                <button class="btn btn-primary btn-large btn--white">
+                  copy
+                </button>
+              </div>
+            </li>
+            <li class="shortened-link">
+              <div class="shortened-link--left">
+                <p>https://www.frontendmentor.io</p>
+              </div>
+              <div class="shortened-link--right">
+                <a>https://rel.ink/k4lKyk</a>
+                <button class="btn btn-primary btn-large btn--white">
+                  copy
                 </button>
               </div>
             </li>
@@ -195,9 +215,9 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="section section-footer">
       <div><img src="images/logo.svg" alt="shortly" /></div>
-      <div>
+      <div class="footer-links quick-links">
         <ul>
           <li>Features</li>
           <li><a href="#">Link Shortening</a></li>
@@ -220,29 +240,27 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <a href="#"><img src="./images/icon-facebook.svg" alt="facebook" /></a>
+      <div class="footer-links social-links">
+        <a href="#"><i class="fab fa-facebook-square"></i></a>
         <a href="#"
-          ><img src="./images/icon-twitter.svg" alt="icon-twitter"
-        /></a>
+          ><i class="fab fa-twitter"></i></a>
         <a href="#"
-          ><img src="./images/icon-pinterest.svg" alt="pinterest"
-        /></a>
+          ><i class="fab fa-pinterest"></i></a>
         <a href="#"
-          ><img src="./images/icon-instagram.svg" alt="instagram"
-        /></a>
-      </div>
-
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
-        <a href="https://github.com/Melissacinta">Melissacinta</a> and
-        <a href="https://github.com/pHoeniX-svg" target="_blank">pHoenix-svg</a
-        >.
+          ><i class="fab fa-instagram"></i></a>
       </div>
     </footer>
+    
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >, Coded by
+      <a href="https://github.com/Melissacinta">Melissacinta</a> and
+      <a href="https://github.com/pHoeniX-svg" target="_blank">pHoenix-svg</a
+      >.
+    </div>
     <a class="scroll-link top-link" href="#home">
       <i class="fas fa-arrow-up"></i>
     </a>
