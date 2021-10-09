@@ -533,6 +533,17 @@ main {
     order: 0;
   }
 }
+@media (min-width: 56.26em) and (max-width: 74.99em) {
+  .hero .heading-primary {
+    font-size: 3em;
+  }
+  .hero-text {
+    max-width: 50%;
+  }
+  .hero-text--para {
+    font-size: 1em;
+  }
+}
 
 /*********** BUTTONS ************/
 a.btn,
