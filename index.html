@@ -22,7 +22,9 @@
       src="https://kit.fontawesome.com/bfdd3a54d7.js"
       crossorigin="anonymous"
     ></script>
-    <script defer src="./js/main.js"></script>
+    <script defer src="./js/nav.js"></script>
+    <script defer type="module" src="./js/shorten.js"></script>
+    <script defer type="module" src="./js/main.js"></script>
   </head>
 
   <body>
@@ -76,16 +78,17 @@
     <main>
       <section class="section-form">
         <div class="section-form__container">
-          <form>
+          <form id="form">
             <div class="input">
               <input
+                id="link-input"
                 type="text"
                 placeholder="Shorten a link here..."
                 class="invalid"
               />
               <p class="invalid">Please add a link</p>
             </div>
-            <button class="btn btn-primary btn--shorten btn--white">
+            <button id="submit" class="btn btn-primary btn--shorten btn--white">
               Shorten It!
             </button>
           </form>
