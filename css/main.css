@@ -801,7 +801,7 @@ a.btn--white:hover, a.btn--white:active {
   position: relative;
   top: -84px;
 }
-.section-form__container form {
+.section-form__container #form {
   display: flex;
   width: 100%;
   background: url(../images/bg-shorten-desktop.svg);
@@ -812,31 +812,32 @@ a.btn--white:hover, a.btn--white:active {
   border-radius: 1rem;
   gap: 1rem;
 }
-.section-form__container form .input {
+.section-form__container #form .input {
   flex: 1;
   position: relative;
 }
-.section-form__container form .input input {
+.section-form__container #form .input input {
   width: 100%;
   padding: 1.5rem;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   font-size: 1.8rem;
   border-radius: 1rem;
 }
-.section-form__container form .input .invalid {
+.section-form__container #form .input .invalid {
   color: var(--clr-el-100);
   line-height: 2.8rem;
   font-style: italic;
 }
-.section-form__container form .input input.invalid {
+.section-form__container #form .input input.invalid {
   font-style: normal;
   border: 2px solid var(--clr-el-100);
 }
-.section-form__container form .input p.invalid {
+.section-form__container #form .input p.invalid {
   position: absolute;
+  display: none;
 }
-.section-form__container form .input input.invalid::-webkit-input-placeholder, .section-form__container form .input :-ms-input-placeholder, .section-form__container form .input ::placeholder {
+.section-form__container #form .input input.invalid::-webkit-input-placeholder, .section-form__container #form .input :-ms-input-placeholder, .section-form__container #form .input ::placeholder {
   color: var(--clr-el-100);
 }
 .section-form__container .shortened-links {
@@ -854,6 +855,12 @@ a.btn--white:hover, a.btn--white:active {
   padding: 2rem 3rem;
   border-radius: 0.5rem;
 }
+.section-form__container .shortened-links .shortened-link--left p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30vw;
+}
 .section-form__container .shortened-links .shortened-link--right {
   display: flex;
   gap: 2rem;
@@ -862,13 +869,18 @@ a.btn--white:hover, a.btn--white:active {
 .section-form__container .shortened-links .shortened-link--right a {
   color: var(--clr-el-200);
 }
+@media (min-width: 56.26em) and (max-width: 74.99em) {
+  .section-form__container .shortened-links .shortened-link--left p {
+    max-width: 25vw;
+  }
+}
 @media (max-width: 56.25em) {
   .section-form {
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .section-form__container form {
+  .section-form__container #form {
     flex-direction: column;
     background-image: url(../images/bg-shorten-mobile.svg);
     padding: 3rem 4rem;
@@ -876,7 +888,7 @@ a.btn--white:hover, a.btn--white:active {
     background-position: right top;
     gap: 1.8rem;
   }
-  .section-form__container form .input p.invalid {
+  .section-form__container #form .input p.invalid {
     position: relative;
   }
   .section-form__container .shortened-links .shortened-link {
@@ -888,6 +900,9 @@ a.btn--white:hover, a.btn--white:active {
   }
   .section-form__container .shortened-links .shortened-link--right, .section-form__container .shortened-links .shortened-link--left {
     padding: 2rem;
+  }
+  .section-form__container .shortened-links .shortened-link--left p {
+    max-width: 39rem;
   }
   .section-form__container .shortened-links .shortened-link--right {
     border-top: 1px solid var(--clr-bg-900);

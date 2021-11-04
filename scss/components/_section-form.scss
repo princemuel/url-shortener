@@ -12,7 +12,7 @@
     &__container{
         position: relative;
         top: -84px;
-        form{
+        #form{
             display: flex;
             width: 100%;
             background: f.img("bg-shorten-desktop.svg");
@@ -28,7 +28,7 @@
                 input{
                     width: 100%;
                     padding: 1.5rem;
-                    border: none;
+                    border: 2px solid transparent;
                     outline: none;
                     font-size: 1.8rem;
                     border-radius: 1rem;
@@ -44,6 +44,7 @@
                 }
                 p.invalid{
                     position: absolute;
+                    display: none;
                 }
                 input.invalid::-webkit-input-placeholder,:-ms-input-placeholder,::placeholder{
                     color: var(--clr-el-100);
@@ -64,7 +65,12 @@
                 background-color: var(--clr-bg-100);
                 padding: 2rem 3rem;
                 border-radius: .5rem;
-
+                &--left p{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 30vw;
+                }
                 &--right{
                     display: flex;
                     gap: 2rem;
@@ -76,13 +82,25 @@
             }
         }
     }
+    @include mq.media(">ipad", "<desktop") {
+        &__container{
+
+            .shortened-links{
+                .shortened-link{
+                    &--left p{
+                        max-width: 25vw;
+                    }
+                }
+            }
+        }
+    }
     @include mq.media("<=ipad") {
         width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
         &__container{
             // display: flex;
-            form{
+            #form{
                 flex-direction: column;
                 background-image: f.img("bg-shorten-mobile.svg");
                 padding: 3rem 4rem;
@@ -110,6 +128,9 @@
                     &--left{
                         padding: 2rem;
                         
+                    }
+                    &--left p{
+                        max-width: 39rem;
                     }
                     &--right{
                         border-top: 1px solid var(--clr-bg-900);
