@@ -854,6 +854,12 @@ a.btn--white:hover, a.btn--white:active {
   padding: 2rem 3rem;
   border-radius: 0.5rem;
 }
+.section-form__container .shortened-links .shortened-link--left p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30vw;
+}
 .section-form__container .shortened-links .shortened-link--right {
   display: flex;
   gap: 2rem;
@@ -861,6 +867,11 @@ a.btn--white:hover, a.btn--white:active {
 }
 .section-form__container .shortened-links .shortened-link--right a {
   color: var(--clr-el-200);
+}
+@media (min-width: 56.26em) and (max-width: 74.99em) {
+  .section-form__container .shortened-links .shortened-link--left p {
+    max-width: 25vw;
+  }
 }
 @media (max-width: 56.25em) {
   .section-form {
@@ -888,6 +899,9 @@ a.btn--white:hover, a.btn--white:active {
   }
   .section-form__container .shortened-links .shortened-link--right, .section-form__container .shortened-links .shortened-link--left {
     padding: 2rem;
+  }
+  .section-form__container .shortened-links .shortened-link--left p {
+    max-width: 39rem;
   }
   .section-form__container .shortened-links .shortened-link--right {
     border-top: 1px solid var(--clr-bg-900);

@@ -64,13 +64,30 @@
                 background-color: var(--clr-bg-100);
                 padding: 2rem 3rem;
                 border-radius: .5rem;
-
+                &--left p{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 30vw;
+                }
                 &--right{
                     display: flex;
                     gap: 2rem;
                     align-items: center;
                     a{
                         color: var(--clr-el-200);
+                    }
+                }
+            }
+        }
+    }
+    @include mq.media(">ipad", "<desktop") {
+        &__container{
+
+            .shortened-links{
+                .shortened-link{
+                    &--left p{
+                        max-width: 25vw;
                     }
                 }
             }
@@ -110,6 +127,9 @@
                     &--left{
                         padding: 2rem;
                         
+                    }
+                    &--left p{
+                        max-width: 39rem;
                     }
                     &--right{
                         border-top: 1px solid var(--clr-bg-900);

@@ -32,6 +32,7 @@ const display =  (data) => {
     leftDiv.classList.add("shortened-link--left")
     let para = document.createElement('p');
     para.textContent = data.original_link;
+    para.title = data.original_link;
 
     let rightDiv = document.createElement('div');
     rightDiv.classList.add("shortened-link--right")
