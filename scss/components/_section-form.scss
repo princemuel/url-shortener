@@ -12,7 +12,7 @@
     &__container{
         position: relative;
         top: -84px;
-        form{
+        #form{
             display: flex;
             width: 100%;
             background: f.img("bg-shorten-desktop.svg");
@@ -82,7 +82,7 @@
     padding-right: 2rem;
         &__container{
             // display: flex;
-            form{
+            #form{
                 flex-direction: column;
                 background-image: f.img("bg-shorten-mobile.svg");
                 padding: 3rem 4rem;

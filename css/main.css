@@ -801,7 +801,7 @@ a.btn--white:hover, a.btn--white:active {
   position: relative;
   top: -84px;
 }
-.section-form__container form {
+.section-form__container #form {
   display: flex;
   width: 100%;
   background: url(../images/bg-shorten-desktop.svg);
@@ -812,11 +812,11 @@ a.btn--white:hover, a.btn--white:active {
   border-radius: 1rem;
   gap: 1rem;
 }
-.section-form__container form .input {
+.section-form__container #form .input {
   flex: 1;
   position: relative;
 }
-.section-form__container form .input input {
+.section-form__container #form .input input {
   width: 100%;
   padding: 1.5rem;
   border: none;
@@ -824,19 +824,19 @@ a.btn--white:hover, a.btn--white:active {
   font-size: 1.8rem;
   border-radius: 1rem;
 }
-.section-form__container form .input .invalid {
+.section-form__container #form .input .invalid {
   color: var(--clr-el-100);
   line-height: 2.8rem;
   font-style: italic;
 }
-.section-form__container form .input input.invalid {
+.section-form__container #form .input input.invalid {
   font-style: normal;
   border: 2px solid var(--clr-el-100);
 }
-.section-form__container form .input p.invalid {
+.section-form__container #form .input p.invalid {
   position: absolute;
 }
-.section-form__container form .input input.invalid::-webkit-input-placeholder, .section-form__container form .input :-ms-input-placeholder, .section-form__container form .input ::placeholder {
+.section-form__container #form .input input.invalid::-webkit-input-placeholder, .section-form__container #form .input :-ms-input-placeholder, .section-form__container #form .input ::placeholder {
   color: var(--clr-el-100);
 }
 .section-form__container .shortened-links {
@@ -868,7 +868,7 @@ a.btn--white:hover, a.btn--white:active {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  .section-form__container form {
+  .section-form__container #form {
     flex-direction: column;
     background-image: url(../images/bg-shorten-mobile.svg);
     padding: 3rem 4rem;
@@ -876,7 +876,7 @@ a.btn--white:hover, a.btn--white:active {
     background-position: right top;
     gap: 1.8rem;
   }
-  .section-form__container form .input p.invalid {
+  .section-form__container #form .input p.invalid {
     position: relative;
   }
   .section-form__container .shortened-links .shortened-link {
