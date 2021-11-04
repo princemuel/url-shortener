@@ -819,7 +819,7 @@ a.btn--white:hover, a.btn--white:active {
 .section-form__container #form .input input {
   width: 100%;
   padding: 1.5rem;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   font-size: 1.8rem;
   border-radius: 1rem;
@@ -835,6 +835,7 @@ a.btn--white:hover, a.btn--white:active {
 }
 .section-form__container #form .input p.invalid {
   position: absolute;
+  display: none;
 }
 .section-form__container #form .input input.invalid::-webkit-input-placeholder, .section-form__container #form .input :-ms-input-placeholder, .section-form__container #form .input ::placeholder {
   color: var(--clr-el-100);
