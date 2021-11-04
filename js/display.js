@@ -1,6 +1,28 @@
+// if statements to check local storage status i.e empty or not
+let links = (localStorage.getItem('shortenedLinks'))?JSON.parse(localStorage.getItem('shortenedLinks')):{
+    shortenedLink: [],
+};
 
+function linksObjectUpdated() {
+    localStorage.setItem('shortenedLinks', JSON.stringify(links));
+}
 
-export const display =  (data) => {
+export const  addItems = (value)=> {
+    display(value);
+    document.getElementById('link-input').value ='';
+    
+    let linkDetails = {
+        code: value.code,
+        original_link: value.original_link,
+        full_short_link: value.full_short_link
+    }
+    links.shortenedLink.push(linkDetails);
+
+    linksObjectUpdated()
+};
+
+const display =  (data) => {
+
     let list = document.querySelector(".shortened-links")
 
     let item = document.createElement('li');
@@ -31,3 +53,18 @@ export const display =  (data) => {
 
     list.insertBefore(item, list.childNodes[0]);
 };
+
+
+function renderLinks() {
+    // if both the todo and completed list are empty return nothing close function
+    if (!links.shortenedLink.length) return;
+
+    for (let i = 0; i < links.shortenedLink.length; i++) {
+        let value = links.shortenedLink[i];
+        console.log(value.code)
+        display(value);
+    }
+}
+
+
+renderLinks();

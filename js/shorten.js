@@ -1,5 +1,5 @@
 import { BASE_URL } from './main.js';
-import { display } from './display.js';
+import { addItems } from './display.js';
 
 export const shorten = async (link) => {
   const url = `${BASE_URL}/shorten?url=${link}`;
@@ -17,7 +17,7 @@ export const shorten = async (link) => {
     const { ok, result } = data;
     if (ok) {
       console.log(result);
-      display(result)
+      addItems(result)
       return result;
     } else {
       //Need an alert component instead of this(for an invalid link)
