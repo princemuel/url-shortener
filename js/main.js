@@ -9,12 +9,9 @@ submitBtn.addEventListener('click', () => {
   let link = linkInput.value;
   console.log(link);
   shorten(link);
-  
 });
-
-
 
 // linkInput.addEventListener('paste', (e) => {
 //   let link = e.clipboardData.getData('text');
-//   shorten(link); 
+//   shorten(link);
 // });
