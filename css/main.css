@@ -595,6 +595,11 @@ a.btn-secondary,
   color: var(--clr-txt-100);
   background-color: var(--clr-bg-600);
 }
+a.btn-primary, a.btn-secondary,
+.btn-primary,
+.btn-secondary {
+  text-transform: capitalize;
+}
 a.btn-primary:hover, a.btn-primary:active, a.btn-secondary:hover, a.btn-secondary:active,
 .btn-primary:hover,
 .btn-primary:active,
