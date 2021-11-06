@@ -49,6 +49,7 @@ a.btn,
 
   &-primary,
   &-secondary {
+    text-transform: capitalize;
     &:hover,
     &:active {
       opacity: 0.5;
@@ -73,21 +74,20 @@ a.btn,
   &--curved {
     --b-radius: 0.8rem;
   }
-  &-large{
+  &-large {
     padding: 1rem 4rem;
     font-size: 1.8rem;
   }
   &--animated {
     animation: bounce 2s ease-in-out infinite;
   }
-  &--copied{
+  &--copied {
     padding: 1rem 2.7rem;
   }
-  
-  &--shorten{
+
+  &--shorten {
     padding: 1.7rem 4rem;
   }
-  
 }
 
 a.btn--white {

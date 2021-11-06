@@ -62,6 +62,35 @@ const display = (data) => {
 
   // insert ontop of the previous link
   list.insertBefore(item, list.children[0]);
+
+  /* NOTE:
+   *   WE MIGHT NEED TO SLIPT UP OUR JS CODE INTO FILES
+   *   THEN PIPE EVERYTHING INTO MAIN.JS
+   *
+   **/
+
+  if (button) {
+    button.addEventListener('click', (e) => {
+      // this will help to select the a-tag after it has been instantiated
+      const a = item.querySelector('a');
+      const text = a.textContent;
+
+      // this copies the text inside the tag to the clipboard
+      copyToClipboard(text);
+
+      const btn = e.currentTarget;
+      // this overwrites the classname of the btn
+      btn.className = 'btn btn-secondary btn-large btn--white';
+      btn.textContent = 'copied';
+
+      // cheating a bit here: it resets the btn to former after 5 secs
+      // will add the other method later
+      setTimeout(() => {
+        btn.className = 'btn btn-primary btn-large btn--white';
+        btn.textContent = 'copy';
+      }, 5000);
+    });
+  }
 };
 
 function renderLinks() {
@@ -72,6 +101,32 @@ function renderLinks() {
     let value = links.shortenedLink[i];
     display(value);
   }
+}
+
+function copyToClipboard(linkToCopy) {
+  // this initiaites a query for permission to copy to the clipboard: it's async
+  navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
+    // it returns a permission status as: granted || denied || prompt
+    if (result.state == 'granted' || result.state == 'prompt') {
+      function updateClipboard() {
+        navigator.clipboard.writeText(linkToCopy).then(
+          function () {
+            // suggestion: we could add alerts here or in the error for UX
+            console.log(
+              'Your data has been successfully copied to the clipboard'
+            );
+          },
+          function () {
+            throw new Error(
+              'Nothing was copied, pls check your code and try again'
+            );
+          }
+        );
+      }
+      // the function is called here
+      updateClipboard();
+    }
+  });
 }
 
 // call render links
