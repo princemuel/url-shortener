@@ -100,7 +100,7 @@ const display = (data) => {
       copyToClipboard(text);
 
       // adds the purple color to the selected btn
-      copyBtn.className = 'btn btn-secondary btn-large btn--white';
+      copyBtn.className = 'btn btn-secondary btn--copied btn--white';
       copyBtn.textContent = 'copied';
     });
   });
