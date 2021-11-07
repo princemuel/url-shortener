@@ -53,7 +53,7 @@ const display = (data) => {
   aLink.target = '_blank';
   aLink.id = data.code;
   let button = document.createElement('button');
-  button.classList.add('btn', 'btn-primary', 'btn-large', 'btn--white');
+  button.classList.add('btn', 'btn-primary', 'btn-large');
   button.textContent = 'copy';
 
   leftDiv.appendChild(para);
@@ -91,7 +91,7 @@ const display = (data) => {
 
         // removes the purple color from all btns not selected
         if (listItem !== selectedLink) {
-          itemBtn.className = 'btn btn-primary btn-large btn--white';
+          itemBtn.className = 'btn btn-primary btn-large';
           itemBtn.textContent = 'copy';
         }
       });
@@ -100,7 +100,7 @@ const display = (data) => {
       copyToClipboard(text);
 
       // adds the purple color to the selected btn
-      copyBtn.className = 'btn btn-secondary btn--copied btn--white';
+      copyBtn.className = 'btn btn-secondary btn--copied';
       copyBtn.textContent = 'copied';
     });
   });
