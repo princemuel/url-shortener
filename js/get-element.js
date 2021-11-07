@@ -8,3 +8,5 @@ export const getElement = (selector, parent, isList) => {
   }
   throw new Error(`Element(s) not found with this selector ===> ${selector}`);
 };
+
+//isList can be set to true or left out of the function call
