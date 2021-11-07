@@ -1,16 +1,11 @@
-function getElement(selector) {
-  const element = document.querySelector(selector);
+import { getElement } from './get-element.js';
 
-  if (element) return element;
-  throw Error(`Please check your selector, no element matches ${selector} `);
-}
-
-const navbar = getElement('.nav');
-const navBtn = getElement('.nav-toggle');
-const linksLeft = getElement('.nav-links--left');
-const linksRight = getElement('.nav-links--right');
-const linksContainer = getElement('.nav-links');
-const backToTopLink = getElement('.top-link');
+const navbar = getElement('.nav', document);
+const navBtn = getElement('.nav-toggle', document);
+const linksLeft = getElement('.nav-links--left', document);
+const linksRight = getElement('.nav-links--right', document);
+const linksContainer = getElement('.nav-links', document);
+const backToTopLink = getElement('.top-link', document);
 
 // ********** close links ************
 navBtn.addEventListener('click', () => {
