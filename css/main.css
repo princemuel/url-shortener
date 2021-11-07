@@ -598,6 +598,8 @@ a.btn-secondary,
 a.btn-primary, a.btn-secondary,
 .btn-primary,
 .btn-secondary {
+  color: var(--clr-txt-100);
+  font-weight: var(--fw-700);
   text-transform: capitalize;
 }
 a.btn-primary:hover, a.btn-primary:active, a.btn-secondary:hover, a.btn-secondary:active,
@@ -605,7 +607,9 @@ a.btn-primary:hover, a.btn-primary:active, a.btn-secondary:hover, a.btn-secondar
 .btn-primary:active,
 .btn-secondary:hover,
 .btn-secondary:active {
+  color: var(--clr-bg-100);
   opacity: 0.5;
+  animation: none;
 }
 a.btn--sm,
 .btn--sm {
@@ -643,15 +647,6 @@ a.btn--copied,
 a.btn--shorten,
 .btn--shorten {
   padding: 1.7rem 4rem;
-}
-
-a.btn--white {
-  color: var(--clr-txt-100);
-  font-weight: var(--fw-700);
-}
-a.btn--white:hover, a.btn--white:active {
-  color: var(--clr-bg-100);
-  animation: none;
 }
 
 /*********** FEATURE ************/
