@@ -1,3 +1,5 @@
+import { getElement } from './get-element.js';
+
 // if statements to check local storage status i.e empty or not
 let links = localStorage.getItem('shortenedLinks')
   ? JSON.parse(localStorage.getItem('shortenedLinks'))
@@ -72,7 +74,7 @@ const display = (data) => {
   if (button) {
     button.addEventListener('click', (e) => {
       // this will help to select the a-tag after it has been instantiated
-      const a = item.querySelector('a');
+      const a = getElement('a', item);
       const text = a.textContent;
 
       // this copies the text inside the tag to the clipboard
