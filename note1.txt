@@ -10,3 +10,9 @@ make the nav mobile responsive
     width: 91%;
     left: 50%;
     transform: translateX(-50%);
+
+
+- Check if original link exists before shortening a link
+- Add a loader to the page while waiting for responsive
+- Add alerts for all user interactions
+

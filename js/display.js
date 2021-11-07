@@ -104,29 +104,6 @@ const display = (data) => {
       copyBtn.textContent = 'copied';
     });
   });
-
-  // if (button) {
-  //   button.addEventListener('click', (e) => {
-  //     // this will help to select the a-tag after it has been instantiated
-  //     const a = getElement('a', item);
-  //     const text = a.textContent;
-
-  //     // this copies the text inside the tag to the clipboard
-  //     copyToClipboard(text);
-
-  //     const btn = e.currentTarget;
-  //     // this overwrites the classname of the btn
-  //     btn.className = 'btn btn-secondary btn-large btn--white';
-  //     btn.textContent = 'copied';
-
-  //     // cheating a bit here: it resets the btn to former after 5 secs
-  //     // will add the other method later
-  //     setTimeout(() => {
-  //       btn.className = 'btn btn-primary btn-large btn--white';
-  //       btn.textContent = 'copy';
-  //     }, 5000);
-  //   });
-  // }
 };
 
 function renderLinks() {
