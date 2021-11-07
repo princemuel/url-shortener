@@ -68,31 +68,65 @@ const display = (data) => {
   /* NOTE:
    *   WE MIGHT NEED TO SLIPT UP OUR JS CODE INTO FILES
    *   THEN PIPE EVERYTHING INTO MAIN.JS
-   *
+   *  T'WILL HELP MAKE OUR CODE CLEANER AND EASIER TO MAINTAIN
    **/
 
-  if (button) {
-    button.addEventListener('click', (e) => {
-      // this will help to select the a-tag after it has been instantiated
-      const a = getElement('a', item);
-      const text = a.textContent;
+  /* This code's function enables copying data to the clipboard
+   * it iterates 2ru the shortened links and adds the btn-secondary
+   * class to only the selected btn
+   * it also
+   * NOTE: we need to refactor our btn css;
+   **/
+  const shortenedLinks = getElement('.shortened-link', document, true);
 
-      // this copies the text inside the tag to the clipboard
-      copyToClipboard(text);
+  shortenedLinks.forEach((selectedLink) => {
+    const copyBtn = getElement('.btn', selectedLink);
 
-      const btn = e.currentTarget;
-      // this overwrites the classname of the btn
-      btn.className = 'btn btn-secondary btn-large btn--white';
-      btn.textContent = 'copied';
+    copyBtn.addEventListener('click', () => {
+      shortenedLinks.forEach((listItem) => {
+        const itemBtn = getElement('.btn', listItem);
 
-      // cheating a bit here: it resets the btn to former after 5 secs
-      // will add the other method later
-      setTimeout(() => {
-        btn.className = 'btn btn-primary btn-large btn--white';
-        btn.textContent = 'copy';
-      }, 5000);
+        const a = getElement('a', selectedLink);
+        const text = a.textContent;
+
+        // removes the purple color from all btns not selected
+        if (listItem !== selectedLink) {
+          itemBtn.className = 'btn btn-primary btn-large btn--white';
+          itemBtn.textContent = 'copy';
+        }
+
+        // this copies the text inside the tag to the clipboard
+        copyToClipboard(text);
+      });
+
+      // adds the purple color to the selected btn
+      copyBtn.className = 'btn btn-secondary btn-large btn--white';
+      copyBtn.textContent = 'copied';
     });
-  }
+  });
+
+  // if (button) {
+  //   button.addEventListener('click', (e) => {
+  //     // this will help to select the a-tag after it has been instantiated
+  //     const a = getElement('a', item);
+  //     const text = a.textContent;
+
+  //     // this copies the text inside the tag to the clipboard
+  //     copyToClipboard(text);
+
+  //     const btn = e.currentTarget;
+  //     // this overwrites the classname of the btn
+  //     btn.className = 'btn btn-secondary btn-large btn--white';
+  //     btn.textContent = 'copied';
+
+  //     // cheating a bit here: it resets the btn to former after 5 secs
+  //     // will add the other method later
+  //     setTimeout(() => {
+  //       btn.className = 'btn btn-primary btn-large btn--white';
+  //       btn.textContent = 'copy';
+  //     }, 5000);
+  //   });
+  // }
 };
 
 function renderLinks() {
