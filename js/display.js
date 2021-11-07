@@ -83,21 +83,21 @@ const display = (data) => {
     const copyBtn = getElement('.btn', selectedLink);
 
     copyBtn.addEventListener('click', () => {
+      const a = getElement('a', selectedLink);
+      const text = a.textContent;
+
       shortenedLinks.forEach((listItem) => {
         const itemBtn = getElement('.btn', listItem);
-
-        const a = getElement('a', selectedLink);
-        const text = a.textContent;
 
         // removes the purple color from all btns not selected
         if (listItem !== selectedLink) {
           itemBtn.className = 'btn btn-primary btn-large btn--white';
           itemBtn.textContent = 'copy';
         }
-
-        // this copies the text inside the tag to the clipboard
-        copyToClipboard(text);
       });
+
+      // this copies the text inside the tag to the clipboard
+      copyToClipboard(text);
 
       // adds the purple color to the selected btn
       copyBtn.className = 'btn btn-secondary btn-large btn--white';
@@ -160,7 +160,7 @@ function copyToClipboard(linkToCopy) {
         );
       }
       // the function is called here
-      updateClipboard();
+      return updateClipboard();
     }
   });
 }
