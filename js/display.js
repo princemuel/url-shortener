@@ -1,13 +1,13 @@
 import { getElement } from './get-element.js';
 
 // if statements to check local storage status i.e empty or not
-let links = localStorage.getItem('shortenedLinks')
+export let links = localStorage.getItem('shortenedLinks')
   ? JSON.parse(localStorage.getItem('shortenedLinks'))
   : {
       shortenedLink: [],
     };
 // function to add my shortenedLinks to local storage
-function linksObjectUpdated() {
+export function linksObjectUpdated() {
   localStorage.setItem('shortenedLinks', JSON.stringify(links));
 }
 
@@ -31,7 +31,7 @@ export const addItems = (value) => {
 };
 
 // Function to dispay the result in the dom, I think the eventlistener for the copy button should go here too
-const display = (data) => {
+export const display = (data) => {
   // get the ul element
   let list = document.querySelector('.shortened-links');
 
