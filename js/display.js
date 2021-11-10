@@ -81,10 +81,10 @@ export const display = (data) => {
 
   shortenedLinks.forEach((selectedLink) => {
     const copyBtn = getElement('.btn', selectedLink);
+    const a = getElement('a', selectedLink);
+    const text = a.textContent;
 
     copyBtn.addEventListener('click', () => {
-      const a = getElement('a', selectedLink);
-      const text = a.textContent;
 
       shortenedLinks.forEach((listItem) => {
         const itemBtn = getElement('.btn', listItem);
