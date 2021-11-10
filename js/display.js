@@ -77,7 +77,7 @@ export const display = (data) => {
    * it also
    * NOTE: we need to refactor our btn css;
    **/
-  const shortenedLinks = getElement('.shortened-link',true);
+  const shortenedLinks = getElement('.shortened-link', document, true);
 
   shortenedLinks.forEach((selectedLink) => {
     const copyBtn = getElement('.btn', selectedLink);
