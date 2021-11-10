@@ -1,7 +1,7 @@
-export const getElement = (selector, parent, isList) => {
+export const getElement = (selector, scope, isList) => {
   const el = isList
-    ? [...parent.querySelectorAll(selector)]
-    : parent.querySelector(selector);
+    ? [...(scope || document).querySelectorAll(selector)]
+    : (scope || document).querySelector(selector);
 
   if ((!isList && el) || (isList && !el.length < 1)) {
     return el;
