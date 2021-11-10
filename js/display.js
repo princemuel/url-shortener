@@ -62,9 +62,6 @@ export const display = (data) => {
   item.appendChild(leftDiv);
   item.appendChild(rightDiv);
 
-  // insert ontop of the previous link
-  list.insertBefore(item, list.children[0]);
-
   /* NOTE:
    *   WE MIGHT NEED TO SLIPT UP OUR JS CODE INTO FILES
    *   THEN PIPE EVERYTHING INTO MAIN.JS
@@ -77,33 +74,62 @@ export const display = (data) => {
    * it also
    * NOTE: we need to refactor our btn css;
    **/
-  const shortenedLinks = getElement('.shortened-link', document, true);
 
-  shortenedLinks.forEach((selectedLink) => {
-    const copyBtn = getElement('.btn', selectedLink);
+  /* USING THIS TO ITERATE THROUGH THE BTNS WHEN CLICKED */
+  item.addEventListener('click', (e) => {
+    const shortenedLinks = getElement('.shortened-link', document, true);
+    const selectedLink = e.currentTarget;
+    const clickedBtn = getElement('.btn', selectedLink);
+    const a = getElement('a', selectedLink);
 
-    copyBtn.addEventListener('click', () => {
-      const a = getElement('a', selectedLink);
-      const text = a.textContent;
+    const text = a.textContent;
+    copyToClipboard(text);
 
-      shortenedLinks.forEach((listItem) => {
-        const itemBtn = getElement('.btn', listItem);
+    shortenedLinks.forEach((listItem) => {
+      const prevBtn = getElement('.btn', listItem);
 
-        // removes the purple color from all btns not selected
-        if (listItem !== selectedLink) {
-          itemBtn.className = 'btn btn-primary btn-large';
-          itemBtn.textContent = 'copy';
-        }
-      });
-
-      // this copies the text inside the tag to the clipboard
-      copyToClipboard(text);
-
-      // adds the purple color to the selected btn
-      copyBtn.className = 'btn btn-secondary btn--copied';
-      copyBtn.textContent = 'copied';
+      // removes the purple color from all btns not selected
+      if (listItem !== selectedLink) {
+        prevBtn.className = 'btn btn-primary btn-large';
+        prevBtn.textContent = 'copy';
+      }
     });
+
+    // adds the purple color to the selected btn
+    clickedBtn.className = 'btn btn-secondary btn--copied';
+    clickedBtn.textContent = 'copied';
   });
+
+  // insert ontop of the previous link
+  list.insertBefore(item, list.children[0]);
+
+  /* REMOVED THIS BECAUSE OF A MEMORY LEAK */
+  // shortenedLinks.forEach((selectedLink, _, self) => {
+  //   const copyBtn = getElement('.btn', selectedLink);
+
+  //   copyBtn.addEventListener('click', () => {
+  //     console.log(self);
+  //     const a = getElement('a', selectedLink);
+  //     const text = a.textContent;
+
+  //     self.forEach((listItem) => {
+  //       const itemBtn = getElement('.btn', listItem);
+
+  //       // removes the purple color from all btns not selected
+  //       if (listItem !== selectedLink) {
+  //         itemBtn.className = 'btn btn-primary btn-large';
+  //         itemBtn.textContent = 'copy';
+  //       }
+  //     });
+
+  //     // this copies the text inside the tag to the clipboard
+  //     copyToClipboard(text);
+
+  //     // adds the purple color to the selected btn
+  //     copyBtn.className = 'btn btn-secondary btn--copied';
+  //     copyBtn.textContent = 'copied';
+  //   });
+  // });
 };
 
 function renderLinks() {
@@ -137,7 +163,7 @@ function copyToClipboard(linkToCopy) {
         );
       }
       // the function is called here
-     updateClipboard();
+      updateClipboard();
     }
   });
 }
