@@ -81,10 +81,10 @@ export const display = (data) => {
 
   shortenedLinks.forEach((selectedLink) => {
     const copyBtn = getElement('.btn', selectedLink);
-    const a = getElement('a', selectedLink);
-    const text = a.textContent;
 
     copyBtn.addEventListener('click', () => {
+      const a = getElement('a', selectedLink);
+      const text = a.textContent;
 
       shortenedLinks.forEach((listItem) => {
         const itemBtn = getElement('.btn', listItem);
@@ -116,28 +116,31 @@ function renderLinks() {
   }
 }
 
-const updateClipboard = (linkToCopy) => {
-  navigator.clipboard.writeText(linkToCopy).then(
-    function () {
-      // suggestion: we could add alerts here or in the error for UX
-      console.log('Your data has been successfully copied to the clipboard');
-    },
-    function () {
-      throw new Error('Nothing was copied, pls check your code and try again');
-    }
-  );
-};
-
-const copyToClipboard = () => {
+function copyToClipboard(linkToCopy) {
   // this initiaites a query for permission to copy to the clipboard: it's async
   navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
     // it returns a permission status as: granted || denied || prompt
     if (result.state == 'granted' || result.state == 'prompt') {
+      function updateClipboard() {
+        navigator.clipboard.writeText(linkToCopy).then(
+          function () {
+            // suggestion: we could add alerts here or in the error for UX
+            console.log(
+              'Your data has been successfully copied to the clipboard'
+            );
+          },
+          function () {
+            throw new Error(
+              'Nothing was copied, pls check your code and try again'
+            );
+          }
+        );
+      }
       // the function is called here
-      updateClipboard();
+     updateClipboard();
     }
   });
-};
+}
 
 // call render links
 renderLinks();
