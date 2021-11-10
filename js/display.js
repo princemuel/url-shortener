@@ -116,31 +116,28 @@ function renderLinks() {
   }
 }
 
-function copyToClipboard(linkToCopy) {
+const updateClipboard = (linkToCopy) => {
+  navigator.clipboard.writeText(linkToCopy).then(
+    function () {
+      // suggestion: we could add alerts here or in the error for UX
+      console.log('Your data has been successfully copied to the clipboard');
+    },
+    function () {
+      throw new Error('Nothing was copied, pls check your code and try again');
+    }
+  );
+};
+
+const copyToClipboard = () => {
   // this initiaites a query for permission to copy to the clipboard: it's async
   navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
     // it returns a permission status as: granted || denied || prompt
     if (result.state == 'granted' || result.state == 'prompt') {
-      function updateClipboard() {
-        navigator.clipboard.writeText(linkToCopy).then(
-          function () {
-            // suggestion: we could add alerts here or in the error for UX
-            console.log(
-              'Your data has been successfully copied to the clipboard'
-            );
-          },
-          function () {
-            throw new Error(
-              'Nothing was copied, pls check your code and try again'
-            );
-          }
-        );
-      }
       // the function is called here
-      return updateClipboard();
+      updateClipboard();
     }
   });
-}
+};
 
 // call render links
 renderLinks();
