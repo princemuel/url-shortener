@@ -46,8 +46,9 @@
                     position: absolute;
                     display: none;
                 }
-                input.invalid::-webkit-input-placeholder,:-ms-input-placeholder,::placeholder{
+                input.invalid::placeholder{
                     color: var(--clr-el-100);
+                    opacity: 1;
                 }
             }
         }
