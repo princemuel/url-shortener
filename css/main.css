@@ -837,8 +837,9 @@ a.btn--shorten,
   position: absolute;
   display: none;
 }
-.section-form__container #form .input input.invalid::-webkit-input-placeholder, .section-form__container #form .input :-ms-input-placeholder, .section-form__container #form .input ::placeholder {
+.section-form__container #form .input input.invalid::placeholder {
   color: var(--clr-el-100);
+  opacity: 1;
 }
 .section-form__container .shortened-links {
   width: 100%;
