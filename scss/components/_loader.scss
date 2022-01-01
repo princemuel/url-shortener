@@ -1,0 +1,45 @@
+/* -------- loader ---------- */
+
+.loader {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.5);
+  z-index: 999;
+
+  &.loaded {
+    display: none;
+  }
+
+  &__spinner {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    animation: spin 500ms linear infinite;
+    border: 4px solid #ccc;
+    border-right-color: var(--clr-bg-600);
+  }
+
+  &__text {
+    color: var(--clr-txt-500);
+    margin-top: 10px;
+  }
+}
+
+header.isLoading {
+  display: none;
+}
+main.isLoading {
+  display: none;
+}
+footer.isLoading {
+  display: none;
+}
+.attribution.isLoading {
+  display: none;
+}

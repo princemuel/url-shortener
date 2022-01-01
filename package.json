@@ -2,12 +2,11 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "A project which integrates",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "watch": "sass --watch scss/index.scss css/main.css",
-    "serve": "browser-sync start --server --watch --files --port 3000",
-    "start": "npm-run-all --parallel watch serve",
-    "build": "sass --no-source-map --style=compressed --charset scss/index.scss css/main.css"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -20,9 +19,8 @@
     "url": "https://github.com/pHoeniX-svg/url-shortener/issues"
   },
   "homepage": "https://github.com/pHoeniX-svg/url-shortener#readme",
-  "dependencies": {
-    "browser-sync": "^2.27.5",
-    "npm-run-all": "^4.1.5",
-    "sass": "^1.42.1"
+  "devDependencies": {
+    "sass": "^1.45.2",
+    "vite": "^2.7.2"
   }
 }

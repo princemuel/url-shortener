@@ -1,5 +1,5 @@
-import { addItems } from './display';
-import { BASE_URL } from './main';
+import { addItems } from './display.js';
+import { BASE_URL } from '../main.js';
 
 /* Working On These */
 
