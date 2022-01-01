@@ -1,8 +1,21 @@
 import { BASE_URL } from '../main.js';
 import { addItems } from './display.js';
 
+const header = document.querySelector('header');
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
+const loader = document.querySelector('.loader');
+const attribution = document.querySelector('.attribution');
+
 export const shorten = async (link) => {
   const url = `${BASE_URL}/shorten?url=${link}`;
+
+  loader.classList.remove('loaded');
+
+  header.classList.add('isLoading');
+  main.classList.add('isLoading');
+  footer.classList.add('isLoading');
+  attribution.classList.add('isLoading');
 
   fetch(url)
     .then((response) => {
@@ -44,7 +57,13 @@ export const shorten = async (link) => {
         linkInput.classList.remove('invalid');
         invalid.style.display = 'none';
       }, 4000);
-    }).finally(()=> {
-      
     })
+    .finally(() => {
+      loader.classList.add('loaded');
+
+      header.classList.remove('isLoading');
+      main.classList.remove('isLoading');
+      footer.classList.remove('isLoading');
+      attribution.classList.remove('isLoading');
+    });
 };

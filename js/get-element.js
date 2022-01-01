@@ -1,9 +1,9 @@
-export const getElement = (selector, scope, isList) => {
+export const getElement = (selector, scope, isList = false) => {
   const el = isList
     ? [...scope.querySelectorAll(selector)]
     : scope.querySelector(selector);
 
-  if ((!isList && el) || (isList && el.length < 1)) {
+  if ((!isList && el) || (isList && !el.length < 1)) {
     return el;
   }
   throw new Error(`Element(s) not found with this selector ===> ${selector}`);
