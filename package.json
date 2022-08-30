@@ -21,6 +21,6 @@
   "homepage": "https://github.com/pHoeniX-svg/url-shortener#readme",
   "devDependencies": {
     "sass": "^1.45.2",
-    "vite": "^2.7.2"
+    "vite": "^2.9.13"
   }
 }
