@@ -1,0 +1,145 @@
+////////////////////////////////////////////
+// MIXINS: Absolute Center
+@mixin center-abs($position) {
+  position: absolute;
+
+  @if $position == 'vt' {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position == 'hz' {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+////////////////////////////////////////////
+// MIXINS: Absolute Center
+@mixin align($pos) {
+  text-align: $pos;
+}
+
+////////////////////////////////////////////
+// MIXINS: Cover Mixin
+@mixin coverer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+////////////////////////////////////////////
+// MIXINS: Width = Height Mixin
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+////////////////////////////////////////////
+// MIXINS: Mixin for Pseudo elements
+@mixin pseudo(
+  $loc: before,
+  $content: '',
+  $pos: absolute,
+  $top: 0,
+  $btm: 0,
+  $left: 0,
+  $right: 0
+) {
+  position: relative;
+
+  &::#{$loc} {
+    content: $content;
+    position: $pos;
+    top: $top;
+    bottom: $btm;
+    left: $left;
+    right: $right;
+    @content;
+  }
+}
+
+////////////////////////////////////////////
+// MIXINS: Hover Mixin
+@mixin hover-lift() {
+  transition: transform 350ms ease-in-out;
+  box-shadow: 0 0.25em 0.5em 0 rgba(black, 0.2);
+  @include pseudo(after) {
+    transition: transform 350ms ease-in-out;
+    box-shadow: 0 0 1.25em 0 rgba(black, 0.4);
+  }
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+}
+
+////////////////////////////////////////////
+// The main one I use is in the mq-manager.scss file
+////////////////////////////////////////////
+// MIXINS: Breakpoints Mixins Part II
+// $breakpoints: (
+//   'phone': 20em,
+//   'md': 31em,
+//   'tab-port': 37.5em,
+//   'tab-land': 56.25em,
+//   'desk': 75em,
+//   'desk-lg': 112.5em,
+// ) !default;
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+// @include respond-above(phone) {}
+@mixin respond-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// @include respond-below(phone) {}
+@mixin respond-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($size - 1)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// @include respond-between(phone, md) {}
+@mixin respond-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+  }
+}

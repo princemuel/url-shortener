@@ -1,0 +1,95 @@
+@use '../abstracts/mq-manager' as mq;
+/*********** BUTTONS ************/
+
+a.btn,
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--b-radius);
+  outline: none;
+  color: currentColor;
+  font: inherit;
+  font-weight: var(--fw-700);
+  letter-spacing: var(--spacing); //0.02em
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  mix-blend-mode: normal;
+  cursor: pointer;
+  transition: all var(--transition);
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  &-signup {
+    padding: 1.1rem 1.6rem;
+    font-size: 2rem;
+    @include mq.media('>=tablet') {
+      padding: 0.5rem 1.1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &--block {
+    width: 100%;
+    padding: 1.5em 2em;
+  }
+
+  &-primary {
+    color: var(--clr-txt-100);
+    background-color: var(--clr-el-200);
+  }
+
+  &-secondary {
+    color: var(--clr-txt-100);
+    background-color: var(--clr-bg-600);
+  }
+
+  &-primary,
+  &-secondary {
+    color: var(--clr-txt-100);
+    font-weight: var(--fw-700);
+    text-transform: capitalize;
+    &:hover,
+    &:active {
+      color: var(--clr-bg-100);
+      opacity: 0.5;
+      animation: none;
+    }
+  }
+  &--sm {
+    padding: 0.6rem 1.6rem; //to be adjusted
+  }
+
+  &--md {
+    padding: 0.6rem 1.6rem; //to be adjusted
+  }
+
+  &--lg {
+    padding: 0.6rem 1.6rem; //to be adjusted
+  }
+
+  &--rounded {
+    --b-radius: 4rem;
+  }
+
+  &--curved {
+    --b-radius: 0.8rem;
+  }
+  &-large {
+    padding: 1rem 4rem;
+    font-size: 1.8rem;
+  }
+  &--animated {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  &--copied {
+    padding: 1rem 3.1rem;
+  }
+
+  &--shorten {
+    padding: 1.7rem 4rem;
+  }
+}
