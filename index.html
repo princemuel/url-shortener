@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="auto">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/scss/index.scss" />
     <title>Shortly | Shorter URLs</title>
     <script
       defer
@@ -18,194 +17,450 @@
       crossorigin="anonymous"
     ></script>
 
-    <script type="module" src="./src/nav.ts"></script>
-    <script type="module" src="./src/main.ts"></script>
+    <script type="module" src="/src/main.ts"></script>
   </head>
 
-  <body>
-    <div class="loader loaded">
-      <div class="loader__spinner"></div>
-      <p class="loader__text">Processing</p>
-    </div>
-    <header id="home" class="header">
-      <nav class="nav">
-        <div class="section nav-center">
-          <div class="nav-header">
-            <a href="/" class="nav-logo">
-              <img src="./images/logo.svg" alt="shortly" class="logo" />
-            </a>
-            <button class="nav-toggle">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-          <div class="nav-links">
-            <div class="nav-links--left">
-              <a href="#" class="nav-link">Features</a>
-              <a href="#" class="nav-link">Pricing</a>
-              <a href="#" class="nav-link">Resources</a>
-            </div>
-            <div class="nav-links--right">
-              <a href="#" class="nav-link">Login</a>
-              <a href="#" class="btn btn-primary btn--rounded btn-signup"
+  <body class="relative font-sans antialiased">
+    <a
+      href="#main-content"
+      class="sr-only transition-transform duration-150 focus:not-sr-only"
+      >Skip To Content</a
+    >
+
+    <header class="">
+      <nav aria-label="Primary Navigation" class="relative tw-content-grid">
+        <div
+          class="flex items-center justify-between gap-10 py-8 md:justify-stretch"
+        >
+          <a href="/" class="inline-flex">
+            <img src="/logo.svg" alt="shortly logo" class="" />
+          </a>
+
+          <button
+            type="button"
+            aria-controls="primary-navigation-mobile"
+            aria-expanded="false"
+            data-id="mobile-toggle"
+            class="inline-grid h-6 w-6 place-content-center transition-colors md:hidden"
+          >
+            <i class="fas fa-xl fa-bars"></i>
+            <span class="sr-only">Show Menu</span>
+          </button>
+
+          <ul
+            id="primary-navigation"
+            data-id="primary-navigation"
+            class="hidden w-full items-center gap-8 md:flex"
+          >
+            <li>
+              <a
+                href="#"
+                class="inline-flex text-sm font-bold text-brand-200 hover:text-brand-400 focus:text-brand-400"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="inline-flex text-sm font-bold text-brand-200 hover:text-brand-400 focus:text-brand-400"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="inline-flex text-sm font-bold text-brand-200 hover:text-brand-400 focus:text-brand-400"
+                >Resources</a
+              >
+            </li>
+
+            <li class="ml-auto">
+              <a
+                href="#"
+                class="inline-flex text-sm font-bold text-brand-200 hover:text-brand-400 focus:text-brand-400"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex h-10 items-center justify-center rounded-pill bg-accent-400 px-6 text-sm font-bold text-white transition-colors"
+                href="#"
                 >Sign Up</a
               >
-            </div>
-          </div>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          data-visible="false"
+          id="primary-navigation-mobile"
+          data-id="primary-navigation-mobile"
+          class="absolute top-full flex w-full flex-col gap-7 rounded-lg bg-brand-300 px-6 py-10 text-center transition-transform data-[visible='false']:scale-0 data-[visible='true']:scale-100 md:hidden"
+        >
+          <a href="#" class="text-lg font-bold text-white">Features</a>
+          <a href="#" class="text-lg font-bold text-white">Pricing</a>
+          <a href="#" class="text-lg font-bold text-white">Resources</a>
+
+          <hr class="border-brand-200/25" />
+          <a href="#" class="text-lg font-bold text-white">Login</a>
+          <a
+            href="#"
+            class="inline-flex h-12 items-center justify-center rounded-pill bg-accent-400 px-8 text-lg font-bold text-white transition-colors"
+            >Sign Up</a
+          >
         </div>
       </nav>
+    </header>
 
-      <div class="hero">
-        <div class="hero-text">
-          <h1 class="heading-primary">
-            More than just <span>shorter links</span>
+    <section class="tw-content-grid">
+      <div class="flex flex-col-reverse gap-8 md:flex-row">
+        <div
+          class="mx-auto flex max-w-[52ch] flex-col items-center gap-8 overflow-visible px-4 text-center lg:mx-0 lg:text-left"
+        >
+          <h1 class="text-4xl font-bold -tracking-[1px] text-brand-400">
+            More than just <em class="">shorter links</em>
           </h1>
-          <p class="hero-text--para">
-            Build your brand’s recognition and get detailed insights on how your
-            links are performing.
+
+          <p class="text-lg font-medium tracking-[0.1px] text-brand-200">
+            Build your brand&apos;s recognition and get detailed insights on how
+            your links are performing.
           </p>
-          <a href="#" class="btn btn-primary btn-large btn--rounded"
+
+          <a
+            href="#"
+            class="inline-flex h-14 items-center justify-center rounded-pill bg-accent-400 px-8 text-lg font-bold text-white transition-colors md:text-xl"
             >Get Started</a
           >
         </div>
-        <div class="hero-img">
-          <img src="images/illustration-working.svg" alt="working" />
-        </div>
+
+        <!-- <div
+          class="ml-4 bg-[url(/illustration-working.svg)] bg-cover bg-no-repeat lg:flex-1"
+        ></div> -->
+        <div
+          class="ml-4 bg-[url(/illustration-working.svg)] bg-cover bg-no-repeat py-44 xs:py-52 sm:py-60 md:py-72 lg:flex-1"
+        ></div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="section-form">
-        <div class="section-form__container">
-          <div id="form">
-            <div class="input">
-              <input
-                id="link-input"
-                type="text"
-                placeholder="Shorten a link here..."
-                class=""
-              />
-              <p class="invalid">Please add a link</p>
-            </div>
-            <button id="submit" class="btn btn-primary btn--shorten">
-              Shorten It!
-            </button>
+    <main id="main-content">
+      <section class="tw-content-grid">
+        <form data-id="form" action="" class="">
+          <label class="">
+            <!-- title="RegexPattern" -->
+            <input
+              type="url"
+              name="original_url"
+              id="original_url"
+              placeholder="Shorten a link here..."
+              size="54"
+              pattern="https://*.*"
+              required
+              aria-errormessage="form-error"
+            />
+            <span id="form-error" role="status" aria-live="polite"></span>
+          </label>
+          <button
+            type="submit"
+            data-id="submitter"
+            class="inline-flex h-10 items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+          >
+            Shorten It!
+          </button>
+        </form>
+      </section>
+
+      <section class="bg-[#EFF1F7] tw-content-grid">
+        <ul data-id="link-list" class="flex flex-col gap-4 py-20">
+          <!-- SHORTENED LINKS -->
+        </ul>
+      </section>
+
+      <section class="bg-[#EFF1F7] tw-content-grid">
+        <div class="flex flex-col gap-28 py-20">
+          <header
+            class="mx-auto flex max-w-[52ch] flex-col items-center gap-5 text-center"
+          >
+            <h2
+              class="text-3xl font-bold -tracking-[1px] text-brand-400 md:text-4xl"
+            >
+              Advanced Statistics
+            </h2>
+            <p
+              class="text-base font-medium tracking-[0.1px] text-brand-200 md:text-lg"
+            >
+              Track how your links are performing across the web with our
+              advanced statistics dashboard.
+            </p>
+          </header>
+
+          <div class="flex flex-col gap-24 lg:flex-row">
+            <article class="grid gap-4 rounded-md bg-white px-8 pb-8">
+              <div
+                class="grid h-20 w-20 -translate-y-1/2 place-content-center rounded-pill bg-brand-300"
+              >
+                <img
+                  src="/icon-brand-recognition.svg"
+                  class=""
+                  alt="brand-recognition"
+                />
+              </div>
+
+              <h3 class="text-xl font-bold text-brand-300">
+                Brand Recognition
+              </h3>
+              <p class="text-sm font-medium text-brand-200">
+                Boost your brand recognition with each click. Generic links
+                don&apos;t mean a thing. Branded links help instil confidence in
+                your content.
+              </p>
+            </article>
+
+            <article class="grid gap-4 rounded-md bg-white px-8 pb-8">
+              <div
+                class="grid h-20 w-20 -translate-y-1/2 place-content-center rounded-pill bg-brand-300"
+              >
+                <img
+                  src="/icon-detailed-records.svg"
+                  class=""
+                  alt="detailed-records"
+                />
+              </div>
+              <h3 class="text-xl font-bold text-brand-300">Detailed Records</h3>
+              <p class="text-sm font-medium text-brand-200">
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </p>
+            </article>
+
+            <article class="grid gap-4 rounded-md bg-white px-8 pb-8">
+              <div
+                class="grid h-20 w-20 -translate-y-1/2 place-content-center rounded-pill bg-brand-300"
+              >
+                <img
+                  src="/icon-fully-customizable.svg"
+                  class=""
+                  alt="Fully Customizable"
+                />
+              </div>
+              <h3 class="text-xl font-bold text-brand-300">
+                Fully Customizable
+              </h3>
+              <p class="text-sm font-medium text-brand-200">
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
+            </article>
           </div>
-          <ul class="shortened-links">
-            <!-- Links added dynamically -->
-          </ul>
         </div>
       </section>
 
-      <section class="section section-stats">
-        <header class="section-stats__header u-flow-content">
-          <h2 class="heading-secondary">Advanced Statistics</h2>
-          <p class="section-stats__info">
-            Track how your links are performing across the web with our advanced
-            statistics dashboard.
-          </p>
-        </header>
+      <section
+        class="bg-brand-300 bg-[url(/bg-boost-mobile.svg)] bg-cover bg-no-repeat tw-content-grid md:bg-[url(/bg-boost-desktop.svg)]"
+      >
+        <div class="flex flex-col items-center gap-8 py-20 text-center">
+          <h2 class="text-3xl font-bold -tracking-[1px] text-white md:text-4xl">
+            Boost your links today
+          </h2>
 
-        <div class="stats">
-          <article class="stat u-flow-content stat--one">
-            <div class="stat__icon--wrapper">
-              <img
-                src="./images/icon-brand-recognition.svg"
-                class="stat__icon"
-                alt="brand-recognition"
-              />
-            </div>
-            <h3 class="heading-tertiary">Brand Recognition</h3>
-            <p class="stat__text">
-              Boost your brand recognition with each click. Generic links don’t
-              mean a thing. Branded links help instil confidence in your
-              content.
-            </p>
-          </article>
-
-          <article class="stat u-flow-content stat--two">
-            <div class="stat__icon--wrapper">
-              <img
-                src="./images/icon-detailed-records.svg"
-                class="stat__icon"
-                alt="detailed-records"
-              />
-            </div>
-            <h3 class="heading-tertiary">Detailed Records</h3>
-            <p class="stat__text">
-              Gain insights into who is clicking your links. Knowing when and
-              where people engage with your content helps inform better
-              decisions.
-            </p>
-          </article>
-
-          <article class="stat u-flow-content stat--three">
-            <div class="stat__icon--wrapper">
-              <img
-                src="./images/icon-fully-customizable.svg"
-                class="stat__icon"
-                alt="Fully Customizable"
-              />
-            </div>
-            <h3 class="heading-tertiary">Fully Customizable</h3>
-            <p class="stat__text">
-              Improve brand awareness and content discoverability through
-              customizable links, supercharging audience engagement.
-            </p>
-          </article>
-          <div class="line"></div>
+          <a
+            href="#"
+            class="inline-flex h-14 items-center justify-center rounded-pill bg-accent-400 px-8 text-lg font-bold text-white transition-colors md:text-xl"
+            >Get Started</a
+          >
         </div>
       </section>
 
-      <section class="section section-cta u-flow-content">
-        <h2 class="heading-secondary">Boost your links today</h2>
-        <a href="#" class="btn btn-primary btn-large btn--rounded"
-          >Get Started</a
-        >
-      </section>
+      <footer class="bg-brand-500 tw-content-grid">
+        <section class="flex flex-col gap-20 pt-16">
+          <div
+            class="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start"
+          >
+            <a class="">
+              <img src="/logo.svg" alt="shortly" class="brightness-0 invert" />
+              <span class="sr-only">Go to Home</span>
+            </a>
+
+            <nav class="flex flex-col gap-10 md:flex-row md:gap-20">
+              <ul class="flex flex-col items-center gap-4 md:items-start">
+                <li
+                  class="mb-2 text-base font-bold -tracking-[0.25px] text-white"
+                >
+                  Features
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Link Shortening</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Branded Links</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Analytics</a>
+                </li>
+              </ul>
+              <ul class="flex flex-col items-center gap-4 md:items-start">
+                <li
+                  class="mb-2 text-base font-bold -tracking-[0.25px] text-white"
+                >
+                  Resources
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Blog</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Developers</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Support</a>
+                </li>
+              </ul>
+              <ul class="flex flex-col items-center gap-4 md:items-start">
+                <li
+                  class="mb-2 text-base font-bold -tracking-[0.25px] text-white"
+                >
+                  Company
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">About</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Our Team</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Careers</a>
+                </li>
+                <li
+                  class="text-sm font-medium -tracking-[0.234px] text-brand-100 transition-colors hover:text-accent-400 focus:text-accent-400"
+                >
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="flex items-center gap-6 sm:gap-4 lg:gap-8">
+              <a href="#" class="inline-flex items-center"
+                ><i
+                  class="fab fa-xl fa-facebook-square text-white transition-colors hover:text-accent-400 focus:text-accent-400"
+                ></i
+              ></a>
+              <a href="#" class="inline-flex items-center"
+                ><i
+                  class="fab fa-xl fa-twitter text-white transition-colors hover:text-accent-400 focus:text-accent-400"
+                ></i
+              ></a>
+              <a href="#" class="inline-flex items-center"
+                ><i
+                  class="fab fa-xl fa-pinterest text-white transition-colors hover:text-accent-400 focus:text-accent-400"
+                ></i
+              ></a>
+              <a href="#" class="inline-flex items-center"
+                ><i
+                  class="fab fa-xl fa-instagram text-white transition-colors hover:text-accent-400 focus:text-accent-400"
+                ></i
+              ></a>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-center text-[10px] font-medium leading-snug text-white"
+          >
+            <div class="flex flex-col items-center md:flex-row">
+              <p>
+                Design and Challenge by&nbsp;
+                <a
+                  href="https://www.frontendmentor.io?ref=challenge"
+                  target="_blank"
+                  class="text-accent-400"
+                  >Frontend Mentor&#124;</a
+                >
+              </p>
+              <p>
+                &nbsp;Developed with
+                <span class="text-red-500">&hearts;</span> by&nbsp;
+                <a
+                  href="https://github.com/Melissacinta"
+                  target="_blank"
+                  class="text-accent-400"
+                  >Melissacinta</a
+                >
+                &nbsp;and&nbsp;
+                <a
+                  href="https://github.com/princemuel"
+                  target="_blank"
+                  class="text-accent-400"
+                  >Prince Muel&nbsp;</a
+                >
+              </p>
+
+              <p>
+                &copy;<time
+                  datetime="2021-10-29T23:00:00.000Z"
+                  data-id="initial-year"
+                  >2021</time
+                >
+                -
+                <time datetime="" data-id="current-year"></time>&nbsp;&nbsp;
+                &nbsp;
+              </p>
+            </div>
+          </div>
+        </section>
+      </footer>
     </main>
 
-    <footer class="section section-footer">
-      <div><img src="images/logo.svg" alt="shortly" /></div>
-      <div class="footer-links quick-links">
-        <ul>
-          <li>Features</li>
-          <li><a href="#">Link Shortening</a></li>
-          <li><a href="#">Branded Links</a></li>
-          <li><a href="#">Analytics</a></li>
-        </ul>
-
-        <ul>
-          <li>Resources</li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Developers</a></li>
-          <li><a href="#">Support</a></li>
-        </ul>
-
-        <ul>
-          <li>Company</li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links social-links">
-        <a href="#"><i class="fab fa-facebook-square"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-pinterest"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </footer>
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >, Coded by <a href="https://github.com/Melissacinta">Melissacinta</a> and
-      <a href="https://github.com/pHoeniX-svg" target="_blank">pHoenix-svg</a>.
-    </div>
-    <a class="scroll-link top-link" href="#home">
+    <a data-id="scroll-to-top" class="" href="#home">
       <i class="fas fa-arrow-up"></i>
     </a>
+
+    <template data-id="link-template">
+      <li
+        data-id="link"
+        class="flex flex-col rounded-md bg-white md:flex-row md:items-center md:px-8 md:py-5"
+      >
+        <p
+          data-id="link-original"
+          class="truncate border-b border-brand-200/25 p-3 text-base font-medium tracking-[0.1px] text-brand-400 md:border-none md:p-0 md:text-xl"
+        >
+          https://www.frontendmentor.io
+        </p>
+
+        <div
+          class="flex flex-col gap-4 p-3 md:ml-auto md:flex-row md:items-center md:p-0"
+        >
+          <p
+            data-id="link-shortened"
+            class="truncate text-base font-medium tracking-[0.1px] text-accent-400"
+          >
+            https://rel.ink/k4lKyk
+          </p>
+
+          <button
+            type="button"
+            data-id="copy-to-clipboard"
+            class="inline-flex h-10 items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+          >
+            Copy
+          </button>
+        </div>
+      </li>
+    </template>
   </body>
 </html>
