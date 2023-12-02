@@ -7,10 +7,11 @@ export async function request<Value extends unknown>(
     const response = await fetch(...args);
 
     if (!response.ok) {
-      const json = await response.json();
+      const json = (await response.json()) as Value & { error: string };
       console.log(json);
 
-      const message = json?.error || 'An unexpected error occurred.';
+      const message =
+        json?.error || 'NetworkError when attempting to fetch resource';
 
       const error: FetchError = new Error(message);
       error.status = response.status;
@@ -18,7 +19,7 @@ export async function request<Value extends unknown>(
       return Promise.reject(error);
     }
 
-    return response.json();
+    return response.json() as Value;
   } catch (error) {
     return Promise.reject(error);
   }
@@ -87,7 +88,7 @@ export function timeout<Value>(
 
       if (result === TIMEOUT) {
         if (options.controller) options.controller.abort();
-        reject(new TimeoutError(`Timed out after ${options.ms}ms`));
+        reject(new TimeoutError(`Request timed out after ${options.ms}ms`));
       }
 
       resolve(result as Awaited<Value>);

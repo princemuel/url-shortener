@@ -7,42 +7,65 @@ export function useState<T>(initialState: T) {
   ] as const;
 }
 
-export function singleton<T>(name: string, callback: () => T): T {
-  const g = globalThis as any;
-  g.__singletons ??= new Map();
+export function useFetchStatus(status: FetchStatus) {
+  const fetchStatusEvent = new CustomEvent('fetchstatus', {
+    detail: {},
+    bubbles: true,
+    cancelable: true,
+  }) as CustomEvent<{ status: FetchStatus }>;
 
-  if (!g.__singletons.has(name)) g.__singletons.set(name, callback());
-  return g.__singletons.get(name);
+  const dispatchEvent = () => {
+    document.dispatchEvent(fetchStatusEvent);
+  };
+
+  return [
+    () => status,
+
+    (value: FetchStatus) => {
+      status = value;
+      fetchStatusEvent.detail.status = status;
+      dispatchEvent();
+
+      console.log('fetchstatus:', fetchStatusEvent.detail.status);
+    },
+  ] as const;
 }
 
-/*---------------------------------*
-            ARRAY UTILS            *
-  ---------------------------------*
- */
+export async function hash(value: string) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(value);
 
-export function hasValues<T>(
-  value: T[] | null | undefined
-): value is NonNullable<T>[] {
-  return Array.isArray(value) && value.length > 0;
+  const buffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(buffer));
+  return hashArray.map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
-/**
- * A Generic Ranking Algorithm
- * @param items T[]
- * @param order 'asc' | 'desc'
- * @returns An array containing the sorted items according to the ranking algorithm
- */
+// export function useFetchStatus(status: FetchStatus) {
+//   let debounceTimer: number | null = null;
+//   const fetchStatusEvent = new CustomEvent('fetchstatus', {
+//     detail: {},
+//     bubbles: true,
+//     cancelable: true,
+//   }) as CustomEvent<{ status: FetchStatus }>;
 
-export const rank = <T>(
-  items: T[],
-  order: 'asc' | 'desc',
-  callbackfn: (value: T) => number
-): T[] => {
-  return items
-    .map((item) => ({
-      item,
-      rank: callbackfn(item),
-    }))
-    .sort((a, b) => (order === 'asc' ? a.rank - b.rank : b.rank - a.rank))
-    .map((ranked) => ranked.item);
-};
+//   const dispatchEvent = () => {
+//     document.dispatchEvent(fetchStatusEvent);
+//   };
+
+//   return [
+//     () => status,
+//     (value: FetchStatus) => {
+//       status = value;
+
+//       if (debounceTimer != null) {
+//         clearTimeout(debounceTimer);
+//       }
+
+//       debounceTimer = setTimeout(() => {
+//         fetchStatusEvent.detail.status = status;
+//         dispatchEvent();
+//         debounceTimer = null;
+//       }, 200);
+//     },
+//   ] as const;
+// }
