@@ -1,0 +1,49 @@
+/*********** FLEX ************/
+.split {
+  --width: 72rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (min-width: 60em) {
+    flex-direction: row;
+  }
+
+  & > * + * {
+    margin: var(--spacer) 0 0 0;
+    @media (min-width: 60em) {
+      margin: 0 0 0 var(--spacer);
+    }
+  }
+}
+
+.u-flex--row {
+  display: flex;
+  flex-direction: row;
+}
+.u-flex--col {
+  display: flex;
+  flex-direction: column;
+}
+.u-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.u-center-y {
+  display: flex;
+  align-items: center;
+}
+.u-center-x {
+  display: flex;
+  justify-content: center;
+}
+.u-center-all {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
