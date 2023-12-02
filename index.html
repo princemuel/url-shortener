@@ -113,11 +113,13 @@
     </header>
 
     <section class="tw-content-grid">
-      <div class="flex flex-col-reverse gap-8 md:flex-row">
+      <div class="flex flex-col-reverse gap-8 tw-full-width md:flex-row">
         <div
-          class="mx-auto flex max-w-[52ch] flex-col items-center gap-8 overflow-visible px-4 text-center lg:mx-0 lg:text-left"
+          class="mx-auto flex max-w-[52ch] flex-col items-center gap-8 overflow-visible px-4 text-center lg:mx-0 lg:my-auto lg:items-start lg:px-0 lg:text-left"
         >
-          <h1 class="text-4xl font-bold -tracking-[1px] text-brand-400">
+          <h1
+            class="text-4xl font-bold -tracking-[1px] text-brand-400 lg:text-7xl lg:-tracking-[2px]"
+          >
             More than just <em class="">shorter links</em>
           </h1>
 
@@ -143,38 +145,83 @@
     </section>
 
     <main id="main-content">
+      <!-------------------- FORM START --------------------->
       <section class="tw-content-grid">
-        <form data-id="form" action="" class="">
-          <label class="">
-            <!-- title="RegexPattern" -->
-            <input
-              type="url"
-              name="original_url"
-              id="original_url"
-              placeholder="Shorten a link here..."
-              size="54"
-              pattern="https://*.*"
-              required
-              aria-errormessage="form-error"
-            />
-            <span id="form-error" role="status" aria-live="polite"></span>
-          </label>
-          <button
-            type="submit"
-            data-id="submitter"
-            class="inline-flex h-10 items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+        <form
+          data-id="form"
+          class="relative top-1/2 rounded-lg bg-brand-300 bg-[url(/bg-boost-mobile.svg)] bg-cover bg-no-repeat md:bg-[url(/bg-boost-desktop.svg)]"
+        >
+          <div
+            class="flex flex-col content-center gap-4 p-6 md:flex-row md:p-12"
           >
-            Shorten It!
-          </button>
+            <label class="relative block w-full md:flex-1">
+              <!-- title="RegexPattern" -->
+              <!-- pattern="https://*.*"
+                required -->
+              <!-- type="url" -->
+              <input
+                type="url"
+                name="original_url"
+                id="original_url"
+                data-id="original_url"
+                placeholder="Shorten a link here..."
+                class="peer w-full rounded-md px-5 py-3 text-base font-medium tracking-[0.1px] outline-none placeholder:text-brand-400/50 invalid:border-2 invalid:border-accent-100 invalid:text-accent-100 invalid:placeholder:text-accent-100/50"
+                size="54"
+                aria-errormessage="input-error"
+              />
+              <span
+                id="input-error"
+                data-id="input-error"
+                role="status"
+                aria-live="polite"
+                class="absolute left-0 top-full mt-1 hidden text-sm italic peer-invalid:inline peer-invalid:text-accent-100"
+              ></span>
+            </label>
+
+            <button
+              type="submit"
+              data-id="submitter"
+              class="inline-flex h-12 items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+            >
+              Shorten It!
+            </button>
+          </div>
         </form>
       </section>
+      <!-------------------- FORM END --------------------->
 
-      <section class="bg-[#EFF1F7] tw-content-grid">
+      <!------------- SHORTENED LINKS LIST ---------------->
+      <section class="mt-6 bg-[#EFF1F7] tw-content-grid">
         <ul data-id="link-list" class="flex flex-col gap-4 py-20">
           <!-- SHORTENED LINKS -->
+          <li
+            data-id="skeleton-loader"
+            data-visible="false"
+            class="flex-col rounded-md bg-white aria-hidden:hidden data-[visible=true]:flex data-[visible=false]:hidden md:flex-row md:items-center md:px-8 md:py-5"
+          >
+            <p
+              class="animate-pulse truncate border-b border-brand-200/25 p-3 text-base font-medium tracking-[0.1px] text-brand-400 md:border-none md:p-0 md:text-xl"
+            >
+              Loading...
+            </p>
+            <div
+              class="flex flex-col gap-4 p-3 md:ml-auto md:flex-row md:items-center md:p-0"
+            >
+              <button
+                type="button"
+                class="inline-flex h-10 animate-pulse items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+                aria-selected="false"
+                disabled
+              >
+                Loading...
+              </button>
+            </div>
+          </li>
         </ul>
       </section>
+      <!------------- SHORTENED LINKS LIST ---------------->
 
+      <!---------------- STATISTICS ----------------------->
       <section class="bg-[#EFF1F7] tw-content-grid">
         <div class="flex flex-col gap-28 py-20">
           <header
@@ -254,7 +301,9 @@
           </div>
         </div>
       </section>
+      <!---------------- STATISTICS ----------------------->
 
+      <!---------------- CALL TO ACTION ------------------->
       <section
         class="bg-brand-300 bg-[url(/bg-boost-mobile.svg)] bg-cover bg-no-repeat tw-content-grid md:bg-[url(/bg-boost-desktop.svg)]"
       >
@@ -270,7 +319,9 @@
           >
         </div>
       </section>
+      <!---------------- CALL TO ACTION ------------------->
 
+      <!------------------- FOOTER ------------------------>
       <footer class="bg-brand-500 tw-content-grid">
         <section class="flex flex-col gap-20 pt-16">
           <div
@@ -424,6 +475,7 @@
           </div>
         </section>
       </footer>
+      <!------------------- FOOTER ------------------------>
     </main>
 
     <a data-id="scroll-to-top" class="" href="#home">
@@ -432,11 +484,11 @@
 
     <template data-id="link-template">
       <li
-        data-id="link"
+        data-id="link-{{ hash }}"
         class="flex flex-col rounded-md bg-white md:flex-row md:items-center md:px-8 md:py-5"
       >
         <p
-          data-id="link-original"
+          data-id="link-original-{{ hash }}"
           class="truncate border-b border-brand-200/25 p-3 text-base font-medium tracking-[0.1px] text-brand-400 md:border-none md:p-0 md:text-xl"
         >
           https://www.frontendmentor.io
@@ -446,7 +498,7 @@
           class="flex flex-col gap-4 p-3 md:ml-auto md:flex-row md:items-center md:p-0"
         >
           <p
-            data-id="link-shortened"
+            data-id="link-shortened-{{ hash }}"
             class="truncate text-base font-medium tracking-[0.1px] text-accent-400"
           >
             https://rel.ink/k4lKyk
@@ -454,8 +506,9 @@
 
           <button
             type="button"
-            data-id="copy-to-clipboard"
-            class="inline-flex h-10 items-center justify-center rounded-md bg-accent-400 px-8 text-base font-bold text-white transition-colors"
+            data-id="copy-to-clipboard-{{ hash }}"
+            aria-selected="false"
+            class="inline-flex h-10 w-24 items-center justify-center rounded-md bg-accent-400 text-base font-bold text-white transition-colors aria-selected:bg-brand-300"
           >
             Copy
           </button>
