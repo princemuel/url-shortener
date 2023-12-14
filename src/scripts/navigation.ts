@@ -1,3 +1,4 @@
+import { backToTopLink } from './elements';
 import { queryElement } from './query-element';
 
 const navigation = queryElement<HTMLUListElement>(
@@ -15,4 +16,13 @@ toggle.addEventListener('click', () => {
     navigation.setAttribute('data-visible', 'false');
     toggle.setAttribute('aria-expanded', 'false');
   }
+});
+
+window.addEventListener('scroll', () => {
+  const scrollHeight = window.scrollY;
+  const navHeight = navigation.getBoundingClientRect().height;
+
+  if (scrollHeight > navHeight)
+    backToTopLink.setAttribute('data-visible', 'true');
+  else backToTopLink.setAttribute('data-visible', 'false');
 });

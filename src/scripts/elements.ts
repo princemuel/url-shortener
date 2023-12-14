@@ -22,3 +22,6 @@ export const submitter = document.querySelector(
 export const formError = document.querySelector(
   "[data-id='input-error']"
 ) as HTMLSpanElement;
+export const backToTopLink = document.querySelector(
+  '[data-id="scroll-to-top"]'
+) as HTMLAnchorElement;

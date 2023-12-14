@@ -112,7 +112,7 @@
       </nav>
     </header>
 
-    <section class="tw-content-grid">
+    <section id="home" class="tw-content-grid">
       <div class="flex flex-col-reverse gap-8 tw-full-width md:flex-row">
         <div
           class="mx-auto flex max-w-[52ch] flex-col items-center gap-8 overflow-visible px-4 text-center lg:mx-0 lg:my-auto lg:items-start lg:px-0 lg:text-left"
@@ -155,15 +155,13 @@
             class="flex flex-col content-center gap-4 p-6 md:flex-row md:p-12"
           >
             <label class="relative block w-full md:flex-1">
-              <!-- title="RegexPattern" -->
-              <!-- pattern="https://*.*"
-                required -->
-              <!-- type="url" -->
               <input
                 type="url"
                 name="original_url"
                 id="original_url"
                 data-id="original_url"
+                pattern="https://*.*"
+                title="RegexPattern"
                 placeholder="Shorten a link here..."
                 class="peer w-full rounded-md px-5 py-3 text-base font-medium tracking-[0.1px] outline-none placeholder:text-brand-400/50 invalid:border-2 invalid:border-accent-100 invalid:text-accent-100 invalid:placeholder:text-accent-100/50"
                 size="54"
@@ -478,7 +476,12 @@
       <!------------------- FOOTER ------------------------>
     </main>
 
-    <a data-id="scroll-to-top" class="" href="#home">
+    <a
+      data-id="scroll-to-top"
+      data-visible="false"
+      class="invisible fixed bottom-7 right-7 -z-20 grid h-10 w-10 animate-bounce place-items-center rounded-md bg-accent-400 text-xl text-white duration-300 ease-in-out data-[visible=true]:visible data-[visible=true]:z-20"
+      href="#home"
+    >
       <i class="fas fa-arrow-up"></i>
     </a>
 
