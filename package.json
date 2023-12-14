@@ -22,6 +22,7 @@
   "homepage": "https://github.com/pHoeniX-svg/url-shortener#readme",
   "devDependencies": {
     "@total-typescript/ts-reset": "^0.5.1",
+    "@types/node": "^20.10.4",
     "autoprefixer": "^10.4.16",
     "netlify-cli": "^17.10.1",
     "postcss": "^8.4.32",
