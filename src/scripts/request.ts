@@ -74,7 +74,7 @@ export function timeout<Value>(
       reject(new Error('Invalid timeout duration'));
     }
 
-    let timer: number | null = null;
+    let timer: NodeJS.Timeout | null = null;
 
     try {
       const result = await Promise.race([
@@ -88,7 +88,9 @@ export function timeout<Value>(
 
       if (result === TIMEOUT) {
         if (options.controller) options.controller.abort();
-        reject(new TimeoutError(`Request timed out after ${options.ms}ms`));
+        reject(
+          new TimeoutError(`Request timed out after ${options.ms / 1000}s`)
+        );
       }
 
       resolve(result as Awaited<Value>);

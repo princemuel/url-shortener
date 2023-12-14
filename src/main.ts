@@ -12,7 +12,7 @@ import {
   template,
   timeElement,
 } from './scripts/elements';
-import { hash, useFetchStatus, useState } from './scripts/helpers';
+import { useFetchStatus, useState } from './scripts/helpers';
 import './scripts/navigation';
 import { queryElement } from './scripts/query-element';
 import { TimeoutError, request, timeout } from './scripts/request';
@@ -22,9 +22,7 @@ import { storage } from './scripts/storage';
 timeElement.setAttribute('datetime', new Date().toISOString());
 timeElement.innerText = new Date().getFullYear().toString();
 
-const links = storage.isAvailable('localStorage')
-  ? storage.getItem<Link[]>('links', [])
-  : [];
+const links = storage.isAvailable() ? storage.getItem<Link[]>('links', []) : [];
 
 const [_, setFetchStatus] = useFetchStatus('idle');
 const [errorMessage, setErrorMessage] = useState('');
@@ -32,22 +30,28 @@ const [hashed, setHashed] = useState('');
 const [shortened_url, setShortened_Url] = useState('');
 const [original_url, setOriginal_Url] = useState('');
 
+input.addEventListener('input', function () {
+  this.setCustomValidity('');
+  this.checkValidity();
+});
+
+input.addEventListener('invalid', () => {
+  input.setCustomValidity(errorMessage());
+});
+
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  this.reportValidity();
   new FormData(form, submitter);
 });
 
 form.addEventListener('formdata', async (e) => {
-  console.log('formdata fired');
   const formData = e.formData;
 
   try {
     const original_url = UrlSchema.parse(formData.get('original_url'));
-    // do not make the request if link's already shortened before
+    // do not make the request if link's already shortenend
     if (links.some((link) => link.original_url === original_url)) {
-      form.reset();
-      return;
+      throw new Error('This link exists, please shorten a different link');
     }
 
     setOriginal_Url(original_url);
@@ -56,18 +60,14 @@ form.addEventListener('formdata', async (e) => {
     const controller = new AbortController();
 
     const response = await timeout(
-      request(import.meta.env.VITE_RAPID_API_URL, {
+      request('/api/shorten', {
         method: 'POST',
         signal: controller.signal,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
-          'X-RapidAPI-Host': import.meta.env.VITE_RAPID_API_HOST,
+          'Content-Type': 'application/json',
         },
-
-        body: new URLSearchParams({
+        body: JSON.stringify({
           url: original_url,
-          // alias: 'google.com'
         }),
       }),
       { ms: 10000, controller: controller }
@@ -75,47 +75,56 @@ form.addEventListener('formdata', async (e) => {
 
     console.log('response', response);
 
-    const json = ResponseSchema.parse(response);
+    const result = ResponseSchema.parse(response);
+    if (result.status === 'failed') throw new Error(result.error);
 
-    setShortened_Url(json.short_url);
-    setHashed(await hash(original_url));
+    setShortened_Url(result.short_url);
+    setHashed(result.original_url);
 
-    storage.setItem<Array<Link>>('links', [
-      ...links,
-      {
-        short_url: json.short_url,
-        original_url,
-        hash: hashed(),
-      },
-    ]);
+    links.push({
+      hash: result.hash,
+      short_url: result.short_url,
+      original_url: result.original_url,
+    });
+    storage.setItem('links', links);
+
+    /* Had to use push instead, state in local storage was being overwritten */
+    // storage.setItem<Link[]>('links', [
+    //   ...links,
+    //   {
+    //     hash: result.hash,
+    //     short_url: result.short_url,
+    //     original_url: result.original_url,
+    //   },
+    // ]);
 
     setFetchStatus('success');
 
     form.reset();
   } catch (error: any) {
-    console.log(error);
+    console.warn(error);
     if (error instanceof TimeoutError) {
       console.error(`TimeoutError: ${error.message}`);
+
       setErrorMessage(error.message);
       setFetchStatus('delayed');
     } else if (error instanceof ZodError) {
       console.error(`ValidationError: ${error.flatten().formErrors[0]}`);
+
       setErrorMessage(`ValidationError: ${error.flatten().formErrors[0]}`);
       setFetchStatus('invalid');
     } else if (error.name === 'AbortError') {
       console.error(`AbortError: ${error.message}`);
+
       setErrorMessage(error.message);
       setFetchStatus('canceled');
     } else {
       console.error(error.message);
+
       setErrorMessage(error.message);
       setFetchStatus('failed');
     }
   }
-  // finally {
-  //   // setFetchStatus(fetchStatus());
-  //   // form.dispatchEvent(FetchStatusEvent);
-  // }
 });
 
 console.log('errorMessage', errorMessage());
@@ -164,7 +173,7 @@ document.addEventListener('fetchstatus', (e) => {
         const target = e.currentTarget as HTMLButtonElement;
         const shortened_link = shortened_url();
 
-        let timer: number | undefined;
+        let timer: NodeJS.Timeout | undefined;
 
         try {
           if (timer) clearTimeout(timer);
@@ -206,6 +215,7 @@ document.addEventListener('fetchstatus', (e) => {
       list.appendChild(linkElement);
       break;
     }
+
     case 'canceled':
     case 'delayed':
     case 'invalid':
@@ -258,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = e.currentTarget as HTMLButtonElement;
       const shortened_link = link.short_url;
 
-      let timer: number | undefined;
+      let timer: NodeJS.Timeout | undefined;
 
       try {
         if (timer) clearTimeout(timer);
