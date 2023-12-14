@@ -1,30 +1,89 @@
 class StorageSingleton {
-  private static instance: Readonly<StorageSingleton>;
+  private static _instance: Readonly<StorageSingleton> | null = null;
+  private __type: 'local' | 'session';
+  private isStorageAvailable: boolean;
 
-  private constructor() {}
-
-  public static getInstance(): Readonly<StorageSingleton> {
-    if (!StorageSingleton.instance) {
-      StorageSingleton.instance = Object.freeze(
-        Object.seal(new StorageSingleton())
+  private constructor(type: 'local' | 'session') {
+    if (StorageSingleton._instance != null) {
+      throw new Error(
+        "Singleton instance already exists. Please use the 'getInstance' method."
       );
     }
 
-    return StorageSingleton.instance;
+    this.__type = type;
+    this.isStorageAvailable = this.checkStorageAvailability();
+  }
+
+  public static get instance() {
+    if (StorageSingleton._instance == null) {
+      throw new Error(
+        'Singleton instance not created. Use getInstance method.'
+      );
+    }
+
+    return StorageSingleton._instance;
+  }
+
+  public static getInstance(type: 'local' | 'session') {
+    if (StorageSingleton._instance == null) {
+      StorageSingleton._instance = Object.freeze(
+        Object.seal(new StorageSingleton(type))
+      );
+    }
+
+    return StorageSingleton._instance;
+  }
+
+  private checkStorageAvailability() {
+    if (typeof window === 'undefined') {
+      console.warn(
+        'The "window" object is not defined. Unable to check storage availability'
+      );
+      return false;
+    }
+
+    const storage = this.getStorage();
+
+    try {
+      const x = '__storage_test__';
+      storage.setItem(x, x);
+      storage.removeItem(x);
+      return true;
+    } catch (e: any) {
+      console.error(`Storage error for type "${this.__type}": ${e.message}`);
+      return (
+        (e instanceof DOMException &&
+          (e.code === 22 ||
+            e.code === 1014 ||
+            e.name === 'QuotaExceededError' ||
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+          storage &&
+          storage.length !== 0) ??
+        false
+      );
+    }
+  }
+
+  private getStorage() {
+    return this.__type === 'local' ? localStorage : sessionStorage;
+  }
+
+  isAvailable() {
+    return this.isStorageAvailable;
   }
 
   clear(): void {
-    localStorage.clear();
+    this.getStorage().clear();
   }
 
   removeItem(key: string): void {
-    localStorage.removeItem(key);
+    this.getStorage().removeItem(key);
   }
 
   getItem<T>(key: string, defaultValue: T): T {
     try {
-      const items = localStorage.getItem(key);
-      return items == null ? defaultValue : (JSON.parse(items) as T);
+      const items = this.getStorage().getItem(key);
+      return items ? (JSON.parse(items) as T) : defaultValue;
     } catch (error: any) {
       console.error(`Error parsing JSON for key "${key}": ${error.message}`);
       return defaultValue;
@@ -34,48 +93,11 @@ class StorageSingleton {
   setItem<T>(key: string, state: T) {
     try {
       const serialized = JSON.stringify(state);
-      localStorage.setItem(key, serialized);
+      this.getStorage().setItem(key, serialized);
     } catch (error: any) {
       console.error(`Error storing item for key "${key}": ${error.message}`);
-      return;
-    }
-  }
-
-  isAvailable(type: 'localStorage' | 'sessionStorage') {
-    if (typeof window === 'undefined') {
-      console.warn(
-        'The "window" object is not defined. Unable to check storage availability.'
-      );
-      return false;
-    }
-
-    let storage: Storage | null = null;
-    try {
-      storage = window[type];
-      const x = '__storage_test__';
-      storage.setItem(x, x);
-      storage.removeItem(x);
-      return true;
-    } catch (e: any) {
-      console.error(`Storage error for type "${type}": ${e.message}`);
-      return (
-        (e instanceof DOMException &&
-          // everything except Firefox
-          (e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === 'QuotaExceededError' ||
-            // Firefox
-            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-          // acknowledge QuotaExceededError only if there's something already stored
-          storage &&
-          storage.length !== 0) ??
-        false
-      );
     }
   }
 }
 
-export const storage = StorageSingleton.getInstance();
+export const storage = StorageSingleton.getInstance('local'); // or 'session'
