@@ -88,7 +88,9 @@ export function timeout<Value>(
 
       if (result === TIMEOUT) {
         if (options.controller) options.controller.abort();
-        reject(new TimeoutError(`Request timed out after ${options.ms}ms`));
+        reject(
+          new TimeoutError(`Request timed out after ${options.ms / 1000}s`)
+        );
       }
 
       resolve(result as Awaited<Value>);
