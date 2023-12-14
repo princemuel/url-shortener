@@ -74,7 +74,7 @@ export function timeout<Value>(
       reject(new Error('Invalid timeout duration'));
     }
 
-    let timer: number | null = null;
+    let timer: NodeJS.Timeout | null = null;
 
     try {
       const result = await Promise.race([
