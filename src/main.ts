@@ -48,13 +48,13 @@ form.addEventListener('formdata', async (e) => {
   const formData = e.formData;
 
   try {
-    const original_url = UrlSchema.parse(formData.get('original_url'));
+    const formValue = UrlSchema.parse(formData.get('original_url'));
     // do not make the request if link's already shortenend
-    if (links.some((link) => link.original_url === original_url)) {
+    if (links.some((link) => link.original_url === formValue)) {
       throw new Error('This link exists, please shorten a different link');
     }
 
-    setOriginal_Url(original_url);
+    setOriginal_Url(formValue);
     setFetchStatus('pending');
 
     const controller = new AbortController();
@@ -67,7 +67,7 @@ form.addEventListener('formdata', async (e) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: original_url,
+          url: formValue,
         }),
       }),
       { ms: 10000, controller: controller }
@@ -79,7 +79,7 @@ form.addEventListener('formdata', async (e) => {
     if (result.status === 'failed') throw new Error(result.error);
 
     setShortened_Url(result.short_url);
-    setHashed(result.original_url);
+    setHashed(result.hash);
 
     links.push({
       hash: result.hash,
@@ -87,16 +87,6 @@ form.addEventListener('formdata', async (e) => {
       original_url: result.original_url,
     });
     storage.setItem('links', links);
-
-    /* Had to use push instead, state in local storage was being overwritten */
-    // storage.setItem<Link[]>('links', [
-    //   ...links,
-    //   {
-    //     hash: result.hash,
-    //     short_url: result.short_url,
-    //     original_url: result.original_url,
-    //   },
-    // ]);
 
     setFetchStatus('success');
 

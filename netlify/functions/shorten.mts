@@ -1,4 +1,6 @@
 import type { Config } from '@netlify/functions';
+import { createHash } from 'node:crypto';
+import { TextEncoder } from 'node:util';
 import { z } from 'zod';
 
 const UrlSchema = z.string().url('invalid url').trim();
@@ -58,7 +60,7 @@ async function hash(value: string) {
   const encoder = new TextEncoder();
   const data = encoder.encode(value);
 
-  const buffer = await crypto.subtle.digest('SHA-256', data);
+  const buffer = createHash('sha256').update(data).digest();
   const hashArray = Array.from(new Uint8Array(buffer));
   return hashArray.map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
